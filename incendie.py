@@ -17,9 +17,17 @@
 
 # Jacques-Henri Lartigue           
 
-#Nojimba AHAMADA
+<<<<<<< HEAD
+# Nojimba Ahamada
 
 #
+
+#
+=======
+#Nojimba AHAMADA
+>>>>>>> d740e0ef8794817b375632ac4702eeabc7795cd3
+
+# Mathieu Chekroun
 
 #
 
