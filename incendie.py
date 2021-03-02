@@ -16,8 +16,7 @@
 # Nojimba Ahamada
 
 # Mathieu Chekroun
-#
-#
+# Alice Dumontroty 
 
 # Groupe: 
 # BI TD3
