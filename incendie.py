@@ -3,11 +3,7 @@
 
 # Jacques-Henri Lartigue           
 
-#
-
-#
-
-#
+#Nojimba AHAMADA
 
 #
 
