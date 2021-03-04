@@ -1,26 +1,27 @@
 ##################################
 # Groupe 1  de BI TD3
 
-# Auters: 
+# Auteurs: 
 # Coraline PELON
 # Jacques-Henri Lartigue 
 # Nojimba Ahamada
 # Alice Dumontroty
 # Mathieu Chekroun
 # Desira Junior Ebelebe
+
 # lien du github: https://github.com/uvsq22010110/Projet_Incendie.git
 
 
 # import des modules
 
 import tkinter as tk
-import random as randint
+import random
 
 #Initialisation
 
 tableau = None
-cases = []
 
+cases = []
 
 # constantes
 
@@ -28,8 +29,7 @@ HAUTEUR = 390
 LARGEUR = 600
 COULEUR_FOND = "grey60"
 COTE = 30
-COULEUR_QUADR = "white"
-liste_couleur = ["blue", "red", "white"]
+COULEUR_QUADR = "grey20"
 
 NB_COL = LARGEUR // COTE
 NB_LINE = HAUTEUR // COTE
@@ -96,7 +96,7 @@ racine = tk.Tk()
 racine.title("Simulation d'une propagation d'incendie")
 
 # création des widgets
-canvas = tk.Canvas(racine, width=LARGEUR, height=HAUTEUR)
+canvas = tk.Canvas(racine, width=LARGEUR, height=HAUTEUR, bg=COULEUR_FOND)
 
 #creation des boutons
 
@@ -106,9 +106,16 @@ bouton_load = tk.Button(text = "LOAD", font = ("Times", "15"), bg = "white", com
 bouton_end = tk.Button(text = "END", font = ("Times", "15"), bg = "white")
 bouton_quit = tk.Button(text = "QUIT", font = ("Times", "15"), bg = "white",command=racine.quit)
 
+#
 #bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
 #bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
 #bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
+#
+
+
+bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
+bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
+bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
 
 
 # placement des widgets
@@ -120,14 +127,13 @@ bouton_save.grid(column = 1, row = 1)
 bouton_load.grid(column = 2, row = 1)
 bouton_end.grid(column = 3, row = 1)
 bouton_quit.grid(column = 4, row = 1)
-
 #bouton_fire.grid(column = 0, row = 2)
 #bouton_water.grid(column = 1, row = 2)
 #bouton_forest.grid(column = 2, row = 2)
 
-
-# Assignation des commandes aux touches du clavier ou souris
+#Assignation des commandes aux touches du clavier ou souris
 canvas.bind("<Button-1>", feu)
+
 
 
 # liaison des évènements
