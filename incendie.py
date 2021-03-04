@@ -17,9 +17,9 @@ import tkinter as tk
 
 # constantes
 
-HAUTEUR = 400
+HAUTEUR = 390
 LARGEUR = 600
-COULEUR_FOND = "grey60"
+COULEUR_FOND = "blue"
 COTE = 30
 COULEUR_QUADR = "grey20"
 
