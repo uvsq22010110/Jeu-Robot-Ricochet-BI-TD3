@@ -19,7 +19,7 @@ import tkinter as tk
 
 HAUTEUR = 390
 LARGEUR = 600
-COULEUR_FOND = "blue"
+COULEUR_FOND = "grey60"
 COTE = 30
 COULEUR_QUADR = "grey20"
 
