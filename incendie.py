@@ -60,7 +60,7 @@ def coord_to_lg(x, y):
     return x // COTE, y // COTE        
 
 def feu(event):
-   """L'utilisateur entame un incendie par un click""" 
+    """Mettre feu au carré sur lequel on a cliqué"""
     i, j = coord_to_lg(event.x, event.y)
     if tableau[i][j] == -1:
         x, y = i * COTE, j * COTE
@@ -68,9 +68,6 @@ def feu(event):
                                         y + COTE, fill=COULEUR_FEU,
                                         outline=COULEUR_QUADR)
         tableau[i][j] = carre
-    else:
-        canvas.itemconfig(tableau[i][j], fill = COULEUR_CENDRES_ETEINTES )
-        tableau[i][j] = -1
 
 def creer_tableau():
     """initialise un tableau à deux dimensions qui vaut -1 partout
@@ -84,7 +81,7 @@ def creer_tableau():
         tableau.append([-1] * NB_LINE)
 
 def load_map():
-  """Chargement d'une map aléatoire"""  
+    """Chargement du terrain"""
     for i in range(COTE):
         for j in range(COTE):
             x, y = i * COTE, j * COTE
