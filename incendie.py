@@ -66,8 +66,6 @@ bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
 bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
 
 
-
-
 # placement des widgets
 canvas.grid(row=0)
 
