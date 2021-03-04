@@ -14,9 +14,10 @@
 # import des modules
 
 import tkinter as tk
+
 # constantes
 
-HAUTEUR = 390
+HAUTEUR = 400
 LARGEUR = 600
 COULEUR_FOND = "grey60"
 COTE = 30
@@ -62,6 +63,9 @@ bouton_quit = tk.Button(text = "QUIT", font = ("Times", "15"), bg = "white",comm
 
 bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
 bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
+bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
+
+
 
 
 # placement des widgets
