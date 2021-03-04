@@ -7,7 +7,7 @@
 # Nojimba Ahamada
 # ALice Dumontroty
 # Mathieu Chekroun
-# Desira
+# Desira Junior Ebelebe
 # lien du github: https://github.com/uvsq22010110/Projet_Incendie.git
 
 
