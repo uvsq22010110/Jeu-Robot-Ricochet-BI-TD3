@@ -47,9 +47,9 @@ racine.title("Simulation d'une propagation d'incendie")
 canvas = tk.Canvas(racine, width=LARGEUR, height=HAUTEUR, bg=COULEUR_FOND)
 
 #creation des boutons
-bouton_play = tk.Button(text = "PLAY")
-bouton_save = tk.Button(text = "SAVE")
-bouton_load = tk.Button(text = "LOAD")
+bouton_play = tk.Button(text = "PLAY", font = ("Times", "15"), bg = "white")
+bouton_save = tk.Button(text = "SAVE", font = ("Times", "15"), bg = "white")
+bouton_load = tk.Button(text = "LOAD", font = ("Times", "15"), bg = "white")
 
 # placement des widgets
 canvas.grid(row=0)
