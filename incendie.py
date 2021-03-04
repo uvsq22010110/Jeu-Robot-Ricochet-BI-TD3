@@ -14,13 +14,13 @@
 # import des modules
 
 import tkinter as tk
-
 # constantes
 
-HAUTEUR = 400
+HAUTEUR = 390
 LARGEUR = 600
 COULEUR_FOND = "grey60"
 COTE = 30
+<<<<<<< HEAD
 COULEUR_QUADR = "grey20"
 COULEUR_FORET = "green"
 COULEUR_EAU = "blue"
@@ -28,6 +28,9 @@ COULEUR_PRAIRIE = "yellow"
 COULEUR_CENDRES_TIEDES = "grey80"
 COULEUR_CENDRES_ETEINTES = "black"
 COULEUR_FEU = "red"
+=======
+COULEUR_QUADR = "grey60"
+>>>>>>> ac29642b97dd15ea154cba916194c1610b541521
 
 # fonctions
 
