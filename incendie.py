@@ -22,13 +22,13 @@ LARGEUR = 600
 COULEUR_FOND = "grey60"
 COTE = 30
 COULEUR_QUADR = "grey20"
-
 COULEUR_FORET = "green"
 COULEUR_EAU = "blue"
 COULEUR_PRAIRIE = "yellow"
 COULEUR_CENDRES_TIEDES = "grey80"
 COULEUR_CENDRES_ETEINTES = "black"
 COULEUR_FEU = "red"
+COULEUR_CAILLOU = "grey40"
 
 # fonctions
 
@@ -60,19 +60,13 @@ bouton_save = tk.Button(text = "SAVE", font = ("Times", "15"), bg = "white")
 bouton_load = tk.Button(text = "LOAD", font = ("Times", "15"), bg = "white")
 bouton_end = tk.Button(text = "END", font = ("Times", "15"), bg = "white")
 bouton_quit = tk.Button(text = "QUIT", font = ("Times", "15"), bg = "white",command=racine.quit)
-<<<<<<< HEAD
 #
 #bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
 #bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
 #bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
 #
 
-=======
 
-bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
-bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
-bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
->>>>>>> 7a4f48344cc8bf3b8600996fb725227590ce4af9
 
 
 # placement des widgets
