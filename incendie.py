@@ -14,10 +14,10 @@
 # import des modules
 
 import tkinter as tk
-    eueuei
+
 
 # constantes
 
 HAUTEUR = 400
 LARGEUR = 600
->>>>>>> 5a0a0f88e408991957dd29df7197de078091dd32
+
