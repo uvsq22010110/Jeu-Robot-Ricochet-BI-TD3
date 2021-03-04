@@ -21,3 +21,5 @@ import tkinter as tk
 HAUTEUR = 400
 LARGEUR = 600
 
+"""ça fonctionne"""
+
