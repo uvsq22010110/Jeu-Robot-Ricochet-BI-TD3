@@ -14,14 +14,16 @@
 # import des modules
 
 import tkinter as tk
+import random as randint
 
 # constantes
 
-HAUTEUR = 400
+HAUTEUR = 390
 LARGEUR = 600
 COULEUR_FOND = "grey60"
 COTE = 30
 COULEUR_QUADR = "white"
+liste_couleur = ["blue", "red", "white"]
 
 COULEUR_FORET = "green"
 COULEUR_EAU = "blue"
@@ -45,13 +47,14 @@ def quadrillage():
         i += 1
 
 
+
 # programme principal
 
 racine = tk.Tk()
 racine.title("Simulation d'une propagation d'incendie")
 
 # création des widgets
-canvas = tk.Canvas(racine, width=LARGEUR, height=HAUTEUR, bg=COULEUR_FOND)
+canvas = tk.Canvas(racine, width=LARGEUR, height=HAUTEUR)
 
 #creation des boutons
 
@@ -61,9 +64,10 @@ bouton_load = tk.Button(text = "LOAD", font = ("Times", "15"), bg = "white")
 bouton_end = tk.Button(text = "END", font = ("Times", "15"), bg = "white")
 bouton_quit = tk.Button(text = "QUIT", font = ("Times", "15"), bg = "white",command=racine.quit)
 
-bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
-bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
-bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
+
+#bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
+#bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
+#bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
 
 
 # placement des widgets
@@ -75,6 +79,11 @@ bouton_save.grid(column = 1, row = 1)
 bouton_load.grid(column = 2, row = 1)
 bouton_end.grid(column = 3, row = 1)
 bouton_quit.grid(column = 4, row = 1)
+
+#bouton_fire.grid(column = 0, row = 2)
+#bouton_water.grid(column = 1, row = 2)
+#bouton_forest.grid(column = 2, row = 2)
+
 
 # liaison des évènements
 quadrillage()
