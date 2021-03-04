@@ -60,7 +60,7 @@ canvas.grid(row=0)
 bouton_play.grid(column = 0, row = 1)
 bouton_save.grid(column = 1, row = 1)
 bouton_load.grid(column = 2, row = 1)
-bouton_end.grid(column=3, row=1 )
+bouton_end.grid(column = 3, row = 1)
 bouton_quit.grid(column = 4, row = 1)
 
 # liaison des évènements
