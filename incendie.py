@@ -50,6 +50,7 @@ canvas = tk.Canvas(racine, width=LARGEUR, height=HAUTEUR, bg=COULEUR_FOND)
 bouton_play = tk.Button(text = "PLAY")
 bouton_save = tk.Button(text = "SAVE")
 bouton_load = tk.Button(text = "LOAD")
+bouton_end = tk.Button(text = "END")
 
 # placement des widgets
 canvas.grid(row=0)
@@ -58,6 +59,7 @@ canvas.grid(row=0)
 bouton_play.grid(column = 0, row = 1)
 bouton_save.grid(column = 1, row = 1)
 bouton_load.grid(column = 2, row = 1)
+bouton_end.grid(column=3, row=1 )
 
 # liaison des évènements
 quadrillage()
