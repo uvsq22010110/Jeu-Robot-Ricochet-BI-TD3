@@ -15,7 +15,6 @@
 
 import tkinter as tk
 
-
 # constantes
 
 HAUTEUR = 400
@@ -39,7 +38,7 @@ def quadrillage():
         i += 1
 
 
-# prgramme principal
+# programme principal
 
 racine = tk.Tk()
 racine.title("Simulation d'une propagation d'incendie")
