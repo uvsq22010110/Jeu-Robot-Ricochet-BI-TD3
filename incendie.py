@@ -5,7 +5,7 @@
 # Coraline PELON
 # Jacques-Henri Lartigue 
 # Nojimba Ahamada
-# ALice Dumontroty
+# Alice Dumontroty
 # Mathieu Chekroun
 # Desira Junior Ebelebe
 # lien du github: https://github.com/uvsq22010110/Projet_Incendie.git
