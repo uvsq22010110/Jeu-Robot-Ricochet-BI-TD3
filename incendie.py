@@ -38,7 +38,7 @@ COULEUR_PRAIRIE = "yellow"
 COULEUR_CENDRES_TIEDES = "grey80"
 COULEUR_CENDRES_ETEINTES = "black"
 COULEUR_FEU = "red"
-COULEUR_ELEM = ["yellow", "red", "blue", "black", "grey80", "green"]
+COULEUR_ELEM = ["yellow", "blue", "green"]
 # fonctions
 
 def quadrillage():
