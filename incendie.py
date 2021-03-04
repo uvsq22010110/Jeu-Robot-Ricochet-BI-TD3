@@ -14,13 +14,13 @@
 # import des modules
 
 import tkinter as tk
+
 # constantes
 
-HAUTEUR = 390
+HAUTEUR = 400
 LARGEUR = 600
 COULEUR_FOND = "grey60"
 COTE = 30
-<<<<<<< HEAD
 COULEUR_QUADR = "grey20"
 COULEUR_FORET = "green"
 COULEUR_EAU = "blue"
@@ -28,9 +28,6 @@ COULEUR_PRAIRIE = "yellow"
 COULEUR_CENDRES_TIEDES = "grey80"
 COULEUR_CENDRES_ETEINTES = "black"
 COULEUR_FEU = "red"
-=======
-COULEUR_QUADR = "grey60"
->>>>>>> ac29642b97dd15ea154cba916194c1610b541521
 
 # fonctions
 
@@ -64,6 +61,9 @@ bouton_end = tk.Button(text = "END", font = ("Times", "15"), bg = "white")
 bouton_quit = tk.Button(text = "QUIT", font = ("Times", "15"), bg = "white",command=racine.quit)
 bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
 bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
+bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
+
+
 
 # placement des widgets
 canvas.grid(row=0)
