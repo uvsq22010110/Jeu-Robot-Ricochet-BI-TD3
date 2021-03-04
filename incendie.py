@@ -14,3 +14,11 @@
 # import des modules
 
 import tkinter as tk
+
+# constantes
+
+HAUTEUR = 400
+LARGEUR = 600
+COULEUR_FOND = "grey60"
+COTE = 10
+COULEUR_QUADR = "grey20"
