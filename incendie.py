@@ -21,7 +21,7 @@ HAUTEUR = 400
 LARGEUR = 600
 COULEUR_FOND = "grey60"
 COTE = 30
-COULEUR_QUADR = "grey20"
+COULEUR_QUADR = "white"
 
 COULEUR_FORET = "green"
 COULEUR_EAU = "blue"
@@ -75,8 +75,6 @@ bouton_save.grid(column = 1, row = 1)
 bouton_load.grid(column = 2, row = 1)
 bouton_end.grid(column = 3, row = 1)
 bouton_quit.grid(column = 4, row = 1)
-bouton_fire.grid(column = 0, row = 2)
-bouton_water.grid(column = 1, row = 2)
 
 # liaison des évènements
 quadrillage()
