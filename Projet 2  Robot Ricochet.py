@@ -3,11 +3,11 @@
 
 # Auteurs: 
 # Coraline PELON
-# Jacques-Henri Lartigue 
-# Nojimba Ahamada
-# Alice Dumontroty
-# Mathieu Chekroun
-# Desira Junior Ebelebe
+# Jacques-Henri LARTIGUE
+# Nojimba AHAMADA
+# Alice DUMONTROTY
+# Mathieu CHEKROUN
+# Desira Junior EBELEBE
 
 # lien du github:https://github.com/uvsq22010110/Projet-2-Robot-Ricochet.git
 
