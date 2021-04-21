@@ -16,10 +16,10 @@
 # Comment le programme fonctionne :
 
 # import des modules
-
 import tkinter as tk
 import random as rd
 
+# constantes
 HAUTEUR = 640
 LARGEUR = 640
 COULEUR_FOND = "navajo white"
@@ -34,8 +34,7 @@ COULEUR_ROBOT3 = "blue"
 COULEUR_ROBOT4 = "yellow"
 COULEUR_CIBLE = "aleatoire"
 
-
-
+# fonctions
 def quadrillage():
     global COULEUR_QUADRILLAGE
     x0, x1 = 0, LARGEUR
@@ -73,20 +72,16 @@ def creer_robot(couleur_robot):
     return [cercle, dx, dy]
 
 
-def creer_carrer():
-    "dessine carrer"
+def creer_caree():
+    "dessine caree"
     i = 16 // 2
     j = 16 // 2 + 1
-    carrer = canvas.create_rectangle((40*(i - 1), 40*(i - 1)), (40*j, 40*j), fill = "black")
-
-
-
+    caree = canvas.create_rectangle((40*(i - 1), 40*(i - 1)), (40*j, 40*j), fill = "black")
 
 
 # programme principal
 racine = tk.Tk()
 racine.title("Jeu des robots")
-
 
 # création des widgets
 canvas = tk.Canvas(racine, width= LARGEUR, height= HAUTEUR, bg= "navajo white")
@@ -98,20 +93,6 @@ creer_robot(COULEUR_ROBOT2)
 creer_robot(COULEUR_ROBOT3)
 creer_robot(COULEUR_ROBOT4)
 
-creer_carrer()
+creer_caree()
 quadrillage()
-racine.mainloop()
-
-# constantes
-
-
-# programme principal
-
-racine = tk.Tk()
-racine.title("Jeu des robots")
-
-# création des widgets
-canvas = tk.Canvas(racine, width= 640, height= 640, bg= "black")
-canvas.grid()
-
 racine.mainloop()
