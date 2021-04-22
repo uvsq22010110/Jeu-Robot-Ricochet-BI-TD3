@@ -30,17 +30,25 @@ LARGEUR = 600
 COULEUR_FOND = "grey60"
 COTE = 30
 COULEUR_QUADR = "grey20"
+<<<<<<< HEAD
+=======
 
 NB_COL = LARGEUR // COTE
 NB_LINE = HAUTEUR // COTE
 
+>>>>>>> 8f45822ad28410a02112d67c34924c06874a862d
 COULEUR_FORET = "green"
 COULEUR_EAU = "blue"
 COULEUR_PRAIRIE = "yellow"
 COULEUR_CENDRES_TIEDES = "grey80"
 COULEUR_CENDRES_ETEINTES = "black"
 COULEUR_FEU = "red"
+<<<<<<< HEAD
+COULEUR_CAILLOU = "grey40"
+
+=======
 COULEUR_ELEM = ["yellow", "blue", "green"]
+>>>>>>> 8f45822ad28410a02112d67c34924c06874a862d
 # fonctions
 
 def quadrillage():
@@ -105,7 +113,10 @@ bouton_save = tk.Button(text = "SAVE", font = ("Times", "15"), bg = "white")
 bouton_load = tk.Button(text = "LOAD", font = ("Times", "15"), bg = "white", command = load_map)
 bouton_end = tk.Button(text = "END", font = ("Times", "15"), bg = "white")
 bouton_quit = tk.Button(text = "QUIT", font = ("Times", "15"), bg = "white",command=racine.quit)
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8f45822ad28410a02112d67c34924c06874a862d
 #
 #bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
 #bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
@@ -113,9 +124,12 @@ bouton_quit = tk.Button(text = "QUIT", font = ("Times", "15"), bg = "white",comm
 #
 
 
+<<<<<<< HEAD
+=======
 bouton_fire = tk.Button(text = "FIRE", font = ("Times", "15"), bg = "red")
 bouton_water = tk.Button(text = "WATER", font = ("Times", "15"), bg = "blue")
 bouton_forest = tk.Button(text = "FOREST", font = ("Times", "15"), bg = "green")
+>>>>>>> 8f45822ad28410a02112d67c34924c06874a862d
 
 
 # placement des widgets
