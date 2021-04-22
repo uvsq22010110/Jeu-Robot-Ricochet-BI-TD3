@@ -34,6 +34,7 @@ COULEUR_ROBOT3 = "blue"
 COULEUR_ROBOT4 = "yellow"
 COULEUR_CIBLE = "aleatoire"
 
+###################################
 # fonctions
 def quadrillage():
     global COULEUR_QUADRILLAGE
@@ -48,62 +49,110 @@ def quadrillage():
         canvas.create_line(x, y0, x, y1, fill=COULEUR_QUADRILLAGE)
         x += COTE
 
+
 def coord_to_lg(x, y):
-    
     return x // COTE, y // COTE        
 
 
 def creer_tableau():
-    
     global tableau
     tableau = []
     for i in range(NB_COL):
         tableau.append([-1] * NB_LINE)
-        
+  
+
+def creer_carre():
+    "dessine caree"
+    i = 16 // 2
+    j = 16 // 2 + 1
+    carre = canvas.create_rectangle((40*(i - 1), 40*(i - 1)), (40*j, 40*j), fill = "black")
+
+
 def creer_robot(couleur_robot):
     "dessine robot"
     i = rd.randint(0,15)
     j = rd.randint(0,15)
-    #attention pas sous le carré noir
+    # attention pas sous le carré noir - (A MODIFIER)
     x,y = i*COTE, j*COTE
-    dx,dy = 10, 10
+    dx, dy = 10, 10
     rayon = COTE
     cercle = canvas.create_oval((x, y), (x+rayon, y+rayon), fill = couleur_robot)
     return [cercle, dx, dy]
-
-
-def creer_caree():
-    "dessine caree"
-    i = 16 // 2
-    j = 16 // 2 + 1
-    caree = canvas.create_rectangle((40*(i - 1), 40*(i - 1)), (40*j, 40*j), fill = "black")
-
+    
 
 def est_dans_le_robot(event):
+    global robot, selection
     """Retourne True si on a cliqué sur un robot sinon False"""
-    print("Tu as cliqué sur un robot")
+    x0, y0, x1, y1 = canvas.coords(robot1[0])
+    x2, y2, x3, y3 = canvas.coords(robot2[0])
+    x4, y4, x5, y5 = canvas.coords(robot3[0])
+    x6, y6, x7, y7 = canvas.coords(robot4[0])
+    clic_x = event.x
+    clic_y = event.y
+    # est dans le robot rouge
+    if x0 <= clic_x <= x1 and y0 <= clic_y <= y1:
+        print("Tu as cliqué sur le robot rouge")
+        robot = robot1
+        selection = True 
+    # est dans le robot vert
+    elif x2 <= clic_x <= x3 and y2 <= clic_y <= y3:
+            print("Tu as cliqué sur le robot vert")
+            robot = robot2
+            selection = True
+    # est dans le robot bleu
+    elif x4 <= clic_x <= x5 and y4 <= clic_y <= y5:
+            print("Tu as cliqué sur le robot blue")
+            robot = robot3
+            selection = True
+    # est dans le robot jaune
+    elif x6 <= clic_x <= x7 and y6 <= clic_y <= y7:
+            print("Tu as cliqué sur le robot jaune")
+            robot = robot4
+            selection = True
+    else:
+        selection = False
+    return selection
 
 
-def deplacement_gauche(event):
-    """Déplace notre robot vers la gauche lorsque l'on appui sur la touche "flèche gauche" """
-    print("Tu as appuyé sur la flèche gauche")
+def clavier(event):
+    """Entre en jeu lorsque l'on clique sur une flèche. Elle sert à déplacer le robot"""
+    global selection
+    touche = event.keysym
+    if selection == True:
+        # flèche du haut
+        if touche == "Up":
+            x0, y0, x1, y1 = canvas.coords(robot[0])
+            if y0 < HAUTEUR:
+                robot[1] = 0
+                robot[2] = -y0
+                canvas.move(robot[0], robot[1], robot[2])
+        
+        # flèche du bas
+        elif touche == "Down":
+            x0, y0, x1, y1 = canvas.coords(robot[0])
+            if y0 < HAUTEUR:
+                robot[1] = 0
+                robot[2] = +(HAUTEUR-y1)
+                canvas.move(robot[0], robot[1], robot[2])
+        
+        # flèche de droite
+        elif touche == "Right":
+            x0, y0, x1, y1 = canvas.coords(robot[0])
+            if x0 < LARGEUR:
+                robot[2] = 0
+                robot[1] = +(LARGEUR-x1)
+                canvas.move(robot[0], robot[1], robot[2])
+
+        # flèche de gauche
+        elif touche == "Left":
+            x0, y0, x1, y1 = canvas.coords(robot[0])
+            if x0 < LARGEUR:
+                robot[2] = 0
+                robot[1] = -x0
+                canvas.move(robot[0], robot[1], robot[2])
 
 
-def deplacement_droite(event):
-    """Déplace notre robot vers la droite lorsque l'on appui sur la touche "flèche droite" """
-    print("Tu as appuyé sur la flèche droite")
-
-
-def deplacement_haut(event):
-    """Déplace notre robot vers le haut lorsque l'on appui sur la touche "flèche du haut" """
-    print("Tu as appuyé sur la flèche du haut")
-
-
-def deplacement_bas(event):
-    """Déplace notre robot vers le bas lorsque l'on appui sur la touche "flèche du bas" """
-    print("Tu as appuyé sur la flèche du bas")
-
-
+####################################
 # programme principal
 racine = tk.Tk()
 racine.title("Jeu des robots")
@@ -113,21 +162,18 @@ canvas = tk.Canvas(racine, width= LARGEUR, height= HAUTEUR, bg= "navajo white")
 
 # liaison des événements
 canvas.bind("<Button-1>", est_dans_le_robot)
-racine.bind("<KeyPress-Left>", deplacement_gauche)
-racine.bind("<KeyPress-Right>", deplacement_droite)
-racine.bind("<KeyPress-Down>", deplacement_bas)
-racine.bind("<KeyPress-Up>", deplacement_haut)
+racine.bind("<Key>", clavier)
 
 # placement des widgets
 canvas.grid()
 
 # programme principal
-creer_robot(COULEUR_ROBOT1)
-creer_robot(COULEUR_ROBOT2)
-creer_robot(COULEUR_ROBOT3)
-creer_robot(COULEUR_ROBOT4)
+robot1 = creer_robot(COULEUR_ROBOT1)
+robot2 = creer_robot(COULEUR_ROBOT2)
+robot3 = creer_robot(COULEUR_ROBOT3)
+robot4 = creer_robot(COULEUR_ROBOT4)
 
-creer_caree()
+creer_carre()
 quadrillage()
 
 racine.mainloop()
