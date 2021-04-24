@@ -1,6 +1,6 @@
 import tkinter as tk
 
-import random as rd
+import random
 
 HAUTEUR = 640
 LARGEUR = 640
@@ -37,12 +37,23 @@ def coord_to_lg(x, y):
 
 def bordure():
     """creation bordures"""
-    mur1 = canvas.create_line(0,0,0,639, fill="black", width = '9')
-    mur2 = canvas.create_line(0,0,639,0, fill="black", width = '9') 
-    mur3 = canvas.create_line(639,0,639,639, fill="black", width = '9')
-    mur4 = canvas.create_line(0,639,639,639, fill="black", width = '9' )
+    mur1 = canvas.create_line(0,0,0,639, fill="black", width = '8')
+    mur2 = canvas.create_line(0,0,639,0, fill="black", width = '8') 
+    mur3 = canvas.create_line(639,0,639,639, fill="black", width = '8')
+    mur4 = canvas.create_line(0,639,639,639, fill="black", width = '8' )
 
+def obstacle_mur():
+    """à modifier afin qu'il est seuleument deux petit murs par côté"""
+    for i in range(NB_LINE):
+        n = [40,80,120,160,200,240,280,320,360,400,440,480,520,560,600]
+        for i in n:
+            for j in range(1,3):
+                """mur gauche du plateau de jeu"""
+                petit_mur = random.choice(n)
+                canvas.create_line(0,petit_mur,40,petit_mur, fill='black', width = '4')
+    
 
+    
 def creer_tableau():
     
     global tableau
@@ -52,8 +63,8 @@ def creer_tableau():
         
 def creer_robot(couleur_robot):
     "dessine robot"
-    i = rd.randint(0,15)
-    j = rd.randint(0,15)
+    i = rd.randint(0,14)
+    j = rd.randint(0,14)
     #attention pas sous le carré noir
     x,y = i*COTE, j*COTE
     dx,dy = 10, 10
@@ -70,7 +81,7 @@ def creer_carrer():
 
 
 
-##########Programme Principale##########################################################################
+#####################################################Programme Principale##########################################################################
 racine = tk.Tk()
 racine.title("Jeu des robots")
 
@@ -86,7 +97,7 @@ creer_robot(COULEUR_ROBOT3)
 creer_robot(COULEUR_ROBOT4)
 
 
-
+obstacle_mur()
 creer_carrer()
 quadrillage()
 bordure()    
