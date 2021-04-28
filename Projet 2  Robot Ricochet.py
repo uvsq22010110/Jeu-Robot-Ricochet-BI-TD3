@@ -34,6 +34,10 @@ COULEUR_ROBOT3 = "blue"
 COULEUR_ROBOT4 = "yellow"
 COULEUR_CIBLE = "aleatoire"
 
+# variables
+tableau = []
+
+
 ###################################
 # fonctions
 def quadrillage():
@@ -57,22 +61,21 @@ def coord_to_lg(x, y):
 def creer_tableau():
     global tableau
     tableau = []
-    for i in range(NB_COL):
-        tableau.append([-1] * NB_LINE)
-  
+    for i in range(n):
+        tableau = [[0] * n]
+
 
 def creer_carre():
     "dessine caree"
     i = 16 // 2
     j = 16 // 2 + 1
-    carre = canvas.create_rectangle((40*(i - 1), 40*(i - 1)), (40*j, 40*j), fill = "black")
+    carre = canvas.create_rectangle((COTE*(i - 1), COTE*(i - 1)), (COTE*j, COTE*j), fill = "black")
 
 
 def creer_robot(couleur_robot):
     "dessine robot"
     i = rd.randint(0,15)
     j = rd.randint(0,15)
-    # attention pas sous le carré noir - (A MODIFIER)
     x,y = i*COTE, j*COTE
     dx, dy = 10, 10
     rayon = COTE

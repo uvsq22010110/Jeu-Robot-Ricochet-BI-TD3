@@ -1,6 +1,6 @@
 import tkinter as tk
 
-import random
+import random as rd
 
 HAUTEUR = 640
 LARGEUR = 640
@@ -49,13 +49,11 @@ def obstacle_mur():
         for i in n:
             for j in range(1,3):
                 """mur gauche du plateau de jeu"""
-                petit_mur = random.choice(n)
+                petit_mur = rd.choice(n)
                 canvas.create_line(0,petit_mur,40,petit_mur, fill='black', width = '4')
     
-
     
 def creer_tableau():
-    
     global tableau
     tableau = []
     for i in range(NB_COL):
@@ -86,7 +84,7 @@ racine = tk.Tk()
 racine.title("Jeu des robots")
 
 
-canvas = Canvas(racine, width=640, height=640, borderwidth=0, highlightthickness=0, bg = COULEUR_FOND)
+canvas = tk.Canvas(racine, width=640, height=640, borderwidth=0, highlightthickness=0, bg = COULEUR_FOND)
 canvas.grid(column = 1, row = 0)
 canvas.pack()
 
@@ -101,4 +99,4 @@ obstacle_mur()
 creer_carrer()
 quadrillage()
 bordure()    
-root.mainloop()
+racine.mainloop()
