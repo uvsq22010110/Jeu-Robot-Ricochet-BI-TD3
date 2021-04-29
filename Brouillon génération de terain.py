@@ -45,12 +45,14 @@ def bordure():
 def obstacle_mur():
     """à modifier afin qu'il est seuleument deux petit murs par côté"""
     for i in range(2,4):
-        n = [80,120,160,200,240,280,320,360,400,440,480,520,560]
-        """mur gauche du plateau de jeu"""
-        petit_mur1 = rd.choice(n)
-        canvas.create_line(0,petit_mur1,40,petit_mur1, fill='black', width = '4')
-
-    
+        n = [80,160,240,320,400,480,560]
+        """obstacles collés aux murs  du plateau de jeu"""
+        petit_mur = rd.choice(n)#mur de gauche
+        canvas.create_line(0,petit_mur,40,petit_mur, fill='black', width = '4')
+        canvas.create_line(640,petit_mur,600,petit_mur, fill = 'black',width = '4')
+        canvas.create_line(petit_mur,0,petit_mur,40,fill='black', width ='4')
+        canvas.create_line(petit_mur,640,petit_mur,600, fill = 'black', width='4')
+        
 def creer_tableau():
     global tableau
     tableau = []
