@@ -40,6 +40,70 @@ tableau = []
 
 ###################################
 # fonctions
+
+def creer_mur1():
+    x0 = 80
+    y0 = 80
+    x1 = x0 + 40
+    y1 = y0
+    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
+
+def creer_mur2():
+    x0 = 160
+    y0 = 160
+    x1 = x0
+    y1 = y0 + 40
+    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
+
+def creer_mur3():
+    x0 = 240
+    y0 = 160
+    x1 = x0
+    y1 = y0 + 40
+    x2 = x0 
+    y2 = y0
+    x3 = x0 + 40
+    y3 = y0 
+    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
+    canvas.create_line(x2,y2,x3,y3, width = 5 , fill = "black")
+
+def creer_mur4():
+    x0 = 560
+    y0 = 160
+    x1 = x0
+    y1 = y0 + 40
+    x2 = x0 
+    y2 = y0
+    x3 = x0 - 40
+    y3 = y0 
+    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
+    canvas.create_line(x2,y2,x3,y3, width = 5 , fill = "black")
+
+def creer_mur5():
+    x0 = 160
+    y0 = 560
+    x1 = x0
+    y1 = y0 - 40
+    x2 = x0 
+    y2 = y0 
+    x3 = x0 - 40
+    y3 = y0 
+    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
+    canvas.create_line(x2,y2,x3,y3, width = 5 , fill = "black")
+
+def creer_mur6():
+    x0 = 560
+    y0 = 560
+    x1 = x0
+    y1 = y0 - 40
+    x2 = x0 
+    y2 = y0 
+    x3 = x0 + 40
+    y3 = y0 
+    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
+    canvas.create_line(x2,y2,x3,y3, width = 5 , fill = "black")
+
+
 def quadrillage():
     global COULEUR_QUADRILLAGE
     x0, x1 = 0, LARGEUR
@@ -178,5 +242,12 @@ robot4 = creer_robot(COULEUR_ROBOT4)
 
 creer_carre()
 quadrillage()
+
+creer_mur1()
+creer_mur2()
+creer_mur3()
+creer_mur4()
+creer_mur5()
+creer_mur6()
 
 racine.mainloop()
