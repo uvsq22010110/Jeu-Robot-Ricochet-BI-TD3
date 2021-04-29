@@ -50,6 +50,13 @@ def creer_mur1():
     y1 = y0
     canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
 
+def test():
+    n = 16
+    i = rd.randint(2, n-2)
+    j = rd.randint(2, n-1)
+    canvas.create_line((i*COTE),j,i,(j*COTE), width = 5 , fill = "purple")
+    canvas.create_line(i, j*COTE, width = 5 , fill = "blue")
+
 def creer_mur2():
     x0 = 160
     y0 = 160
@@ -251,5 +258,5 @@ creer_mur3()
 creer_mur4()
 creer_mur5()
 creer_mur6()
-
+test()
 racine.mainloop()

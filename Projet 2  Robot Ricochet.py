@@ -34,6 +34,13 @@ COULEUR_ROBOT3 = "red"
 COULEUR_ROBOT4 = "blue"
 COULEUR_CIBLE = "aleatoire"
 
+# valeurs des robots
+robot1 = 10
+robot2 = 20
+robot3 = 30
+robot4 = 40
+
+
 # variables
 tableau = []
 
@@ -60,9 +67,13 @@ def coord_to_lg(x, y):
 
 def creer_tableau():
     global tableau
-    tableau = []
-    for i in range(n):
-        tableau = [[0] * n]
+    n = LARGEUR // COTE
+    tableau = [[0] * n for i in range(n)]
+    # initialisation des celulles de la bordure externe
+    tableau[0][0] = 7
+    tableau[n-1][0] = 8
+    tableau[n-1][n-1] = 6
+    tableau[0][n-1] = 5
 
 
 def creer_carre():
@@ -178,5 +189,7 @@ robot4 = creer_robot(COULEUR_ROBOT4)
 
 creer_carre()
 quadrillage()
+creer_tableau()
+print(tableau)
 
 racine.mainloop()
