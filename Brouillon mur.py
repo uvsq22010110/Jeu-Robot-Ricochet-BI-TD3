@@ -34,6 +34,8 @@ COULEUR_ROBOT3 = "red"
 COULEUR_ROBOT4 = "blue"
 COULEUR_CIBLE = "aleatoire"
 
+#Type_de_murs[mur1,mur2,mur3,mur4,mur5,mur6]
+
 # variables
 tableau = []
 
