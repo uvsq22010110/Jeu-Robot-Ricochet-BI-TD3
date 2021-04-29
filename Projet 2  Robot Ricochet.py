@@ -28,10 +28,10 @@ NB_COL = LARGEUR // COTE
 NB_LINE = HAUTEUR // COTE
 
 COULEUR_QUADRILLAGE = "black"
-COULEUR_ROBOT1 = "red"
+COULEUR_ROBOT1 = "yellow"
 COULEUR_ROBOT2 = "green"
-COULEUR_ROBOT3 = "blue"
-COULEUR_ROBOT4 = "yellow"
+COULEUR_ROBOT3 = "red"
+COULEUR_ROBOT4 = "blue"
 COULEUR_CIBLE = "aleatoire"
 
 # variables
@@ -92,9 +92,9 @@ def est_dans_le_robot(event):
     x6, y6, x7, y7 = canvas.coords(robot4[0])
     clic_x = event.x
     clic_y = event.y
-    # est dans le robot rouge
+    # est dans le robot jaune
     if x0 <= clic_x <= x1 and y0 <= clic_y <= y1:
-        print("Tu as cliqué sur le robot rouge")
+        print("Tu as cliqué sur le robot jaune")
         robot = robot1
         selection = True 
     # est dans le robot vert
@@ -102,14 +102,14 @@ def est_dans_le_robot(event):
             print("Tu as cliqué sur le robot vert")
             robot = robot2
             selection = True
-    # est dans le robot bleu
+    # est dans le robot rouge
     elif x4 <= clic_x <= x5 and y4 <= clic_y <= y5:
-            print("Tu as cliqué sur le robot blue")
+            print("Tu as cliqué sur le robot rouge")
             robot = robot3
             selection = True
-    # est dans le robot jaune
+    # est dans le robot bleu
     elif x6 <= clic_x <= x7 and y6 <= clic_y <= y7:
-            print("Tu as cliqué sur le robot jaune")
+            print("Tu as cliqué sur le robot bleu")
             robot = robot4
             selection = True
     else:
@@ -158,7 +158,7 @@ def clavier(event):
 ####################################
 # programme principal
 racine = tk.Tk()
-racine.title("Jeu des robots")
+racine.title("Jeu du robot-ricochet")
 
 # création des widgets
 canvas = tk.Canvas(racine, width= LARGEUR, height= HAUTEUR, bg= "navajo white")
