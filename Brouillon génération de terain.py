@@ -1,5 +1,4 @@
 import tkinter as tk
-
 import random as rd
 
 HAUTEUR = 640
@@ -31,16 +30,15 @@ def quadrillage():
 
 
 def coord_to_lg(x, y):
-    
     return x // COTE, y // COTE
 
 
 def bordure():
     """creation bordures"""
-    mur1 = canvas.create_line(0,0,0,639, fill="black", width = '8')
-    mur2 = canvas.create_line(0,0,639,0, fill="black", width = '8') 
-    mur3 = canvas.create_line(639,0,639,639, fill="black", width = '8')
-    mur4 = canvas.create_line(0,639,639,639, fill="black", width = '8' )
+    mur1 = canvas.create_line(0,0,0,HAUTEUR, fill="black", width = '8')
+    mur2 = canvas.create_line(0,0,LARGEUR,0, fill="black", width = '8') 
+    mur3 = canvas.create_line(LARGEUR,0,LARGEUR,HAUTEUR, fill="black", width = '8')
+    mur4 = canvas.create_line(0,0,0,HAUTEUR, fill="black", width = '8' )
 
 def obstacle_mur():
     """à modifier afin qu'il est seuleument deux petit murs par côté"""
@@ -52,12 +50,12 @@ def obstacle_mur():
         canvas.create_line(640,petit_mur,600,petit_mur, fill = 'black',width = '4')
         canvas.create_line(petit_mur,0,petit_mur,40,fill='black', width ='4')
         canvas.create_line(petit_mur,640,petit_mur,600, fill = 'black', width='4')
-        
+
+
 def creer_tableau():
     global tableau
-    tableau = []
-    for i in range(NB_COL):
-        tableau.append([-1] * NB_LINE)
+    n = LARGEUR // COTE
+    tableau = [[0] * n for i in range(n)]
         
 def creer_robot(couleur_robot):
     "dessine robot"
