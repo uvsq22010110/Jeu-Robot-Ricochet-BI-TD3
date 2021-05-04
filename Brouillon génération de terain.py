@@ -42,7 +42,7 @@ def bordure():
 
 def obstacle_mur():
     """à modifier afin qu'il est seuleument deux petit murs par côté"""
-    for i in range(2,4):
+    for i in range(2):
         n = [80,160,240,320,400,480,560]
         """obstacles collés aux murs  du plateau de jeu"""
         petit_mur = rd.choice(n)#mur de gauche
