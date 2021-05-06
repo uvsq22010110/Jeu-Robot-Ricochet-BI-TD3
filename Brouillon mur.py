@@ -34,8 +34,7 @@ COULEUR_ROBOT3 = "red"
 COULEUR_ROBOT4 = "blue"
 COULEUR_CIBLE = "aleatoire"
 
-Liste_de_type_de_mur = [mur1,mur2,mur3,mur4,mur5,mur6]
-Liste_de_coordonné_possible = [40,80,120,160,200,240,280,320,360,400,440,480,520,560,600]
+#Liste_de_type_de_mur = [mur1,mur2,mur3,mur4,mur5,mur6]
 
 
 # variables
@@ -50,72 +49,47 @@ def creer_mur1():
     # random X
     # random Y
     #Exception : Si le mur est dans le carré au centre relancé la fonction créer_mur
-    x0 = 80
-    y0 = 80 #y0 = x0
-    x1 = x0 + 40
-    y1 = y0
-    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
+    i = rd.randint(1,14)
+    j = rd.randint(1,14)
+    canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
+
 
 def creer_mur2():
-    x0 = 160
-    y0 = 160 #y0 = x0
-    x1 = x0
-    y1 = y0 + 40
-    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
+    i = rd.randint(1,14)
+    j = rd.randint(1,14)
+    canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
 
 def creer_mur3():
-    x0 = 240
-    y0 = 160
-    x1 = x0
-    y1 = y0 + 40
-    x2 = x0 
-    y2 = y0
-    x3 = x0 + 40
-    y3 = y0 
-    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
-    canvas.create_line(x2,y2,x3,y3, width = 5 , fill = "black")
+    i = rd.randint(1,14)
+    j = rd.randint(1,14)
+    canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
+    canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
+
 
 def creer_mur4():
-    x0 = 560
-    y0 = 160
-    x1 = x0
-    y1 = y0 + 40
-    x2 = x0 
-    y2 = y0
-    x3 = x0 - 40
-    y3 = y0 
-    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
-    canvas.create_line(x2,y2,x3,y3, width = 5 , fill = "black")
+    i = rd.randint(2,14)
+    j = rd.randint(1,14)
+    canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
+    canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
 
 def creer_mur5():
-    x0 = 160
-    y0 = 560
-    x1 = x0
-    y1 = y0 - 40
-    x2 = x0 
-    y2 = y0 
-    x3 = x0 - 40
-    y3 = y0 
-    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
-    canvas.create_line(x2,y2,x3,y3, width = 5 , fill = "black")
+    i = rd.randint(1,14)
+    j = rd.randint(1,13)
+    canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
+    canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
+
 
 def creer_mur6():
-    x0 = 560
-    y0 = 560
-    x1 = x0
-    y1 = y0 - 40
-    x2 = x0 
-    y2 = y0 
-    x3 = x0 + 40
-    y3 = y0 
-    canvas.create_line(x0,y0,x1,y1, width = 5 , fill = "black")
-    canvas.create_line(x2,y2,x3,y3, width = 5 , fill = "black")
+    i = rd.randint(2,13)
+    j = rd.randint(2,13)
+    canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
+    canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
 
 def creation_de_mur():
     n = 0
     while n != 17:
         n = n + 1
-       # Mur_choisie = [] chosir un des murs aléatoirement
+       # Mur_choisie = Liste_de_type_de_mur[]
         if Mur_choisie == mur1:
             creer_mur1()
         elif Mur_choisie == mur2:
@@ -269,11 +243,11 @@ robot4 = creer_robot(COULEUR_ROBOT4)
 creer_carre()
 quadrillage()
 
-creer_mur1()
-creer_mur2()
-creer_mur3()
-creer_mur4()
-creer_mur5()
-creer_mur6()
+#creer_mur1()
+#creer_mur2()
+#creer_mur3()
+#creer_mur4()
+#creer_mur5()
+#creer_mur6()
 
 racine.mainloop()
