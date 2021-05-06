@@ -34,7 +34,7 @@ COULEUR_ROBOT3 = "red"
 COULEUR_ROBOT4 = "blue"
 COULEUR_CIBLE = "aleatoire"
 
-#Liste_de_type_de_mur = [mur1,mur2,mur3,mur4,mur5,mur6]
+Liste_de_type_de_mur = ['mur1','mur2','mur3','mur4','mur5','mur6']
 
 
 # variables
@@ -86,21 +86,22 @@ def creer_mur6():
     canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
 
 def creation_de_mur():
+    import random
     n = 0
     while n != 17:
         n = n + 1
-       # Mur_choisie = Liste_de_type_de_mur[]
-        if Mur_choisie == mur1:
+        Mur_choisie = random.choice(Liste_de_type_de_mur)
+        if Mur_choisie == 'mur1':
             creer_mur1()
-        elif Mur_choisie == mur2:
+        elif Mur_choisie == 'mur2':
             creer_mur2()
-        elif Mur_choisie == mur3:
+        elif Mur_choisie == 'mur3':
             creer_mur3()
-        elif Mur_choisie == mur4:
+        elif Mur_choisie == 'mur4':
             creer_mur4()
-        elif Mur_choisie == mur5:
+        elif Mur_choisie == 'mur5':
             creer_mur5()
-        elif Mur_choisie == mur6:
+        elif Mur_choisie == 'mur6':
             creer_mur6()
 
 
@@ -242,12 +243,6 @@ robot4 = creer_robot(COULEUR_ROBOT4)
 
 creer_carre()
 quadrillage()
-
-#creer_mur1()
-#creer_mur2()
-#creer_mur3()
-#creer_mur4()
-#creer_mur5()
-#creer_mur6()
+creation_de_mur()
 
 racine.mainloop()
