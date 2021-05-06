@@ -51,44 +51,62 @@ def creer_mur1():
     #Exception : Si le mur est dans le carré au centre relancé la fonction créer_mur
     i = rd.randint(1,14)
     j = rd.randint(1,14)
-    canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
+    if (7 < i < 11) and (7 < j < 11):
+        creer_mur1()
+    else:
+     canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
 
 
 def creer_mur2():
     i = rd.randint(1,14)
     j = rd.randint(1,14)
-    canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
+    if (7 < i < 11) and (7 < j < 11):
+        creer_mur2()
+    else:
+     canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
 
 def creer_mur3():
     i = rd.randint(2,13)
     j = rd.randint(2,13)
-    canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
-    canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
+    if (7 < i < 11) and (7 < j < 11):
+        creer_mur3()
+    else:
+        canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
+        canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
 
 
 def creer_mur4():
     i = rd.randint(2,13)
     j = rd.randint(2,13)
-    canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
-    canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
+    if (7 < i < 11) and (7 < j < 11):
+        creer_mur4()
+    else:
+        canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
+        canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
 
 def creer_mur5():
     i = rd.randint(2,13)
     j = rd.randint(2,13)
-    canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
-    canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
+    if (7 < i < 11) and (7 < j < 11):
+        creer_mur5()
+    else:
+        canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
+        canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
 
 
 def creer_mur6():
     i = rd.randint(2,13)
     j = rd.randint(2,13)
-    canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
-    canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
+    if (7 < i < 11) and (7 < j < 11):
+        creer_mur6()
+    else:
+        canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
+        canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
 
 def creation_de_mur():
     import random
     n = 0
-    while n != 17:
+    while n != 18:
         n = n + 1
         Mur_choisie = random.choice(Liste_de_type_de_mur)
         if Mur_choisie == 'mur1':
