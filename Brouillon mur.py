@@ -60,21 +60,21 @@ def creer_mur2():
     canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
 
 def creer_mur3():
-    i = rd.randint(1,14)
-    j = rd.randint(1,14)
+    i = rd.randint(2,13)
+    j = rd.randint(2,13)
     canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
     canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
 
 
 def creer_mur4():
-    i = rd.randint(2,14)
-    j = rd.randint(1,14)
+    i = rd.randint(2,13)
+    j = rd.randint(2,13)
     canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
     canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
 
 def creer_mur5():
-    i = rd.randint(1,14)
-    j = rd.randint(1,13)
+    i = rd.randint(2,13)
+    j = rd.randint(2,13)
     canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
     canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
 
