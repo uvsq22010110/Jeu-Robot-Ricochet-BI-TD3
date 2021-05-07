@@ -26,6 +26,8 @@ COULEUR_FOND = "navajo white"
 COTE = 40
 NB_COL = LARGEUR // COTE
 NB_LINE = HAUTEUR // COTE
+liste_couleur = ["red", "green", "blue", "yellow"]
+
 
 COULEUR_QUADRILLAGE = "black"
 COULEUR_ROBOT1 = "yellow"
@@ -199,6 +201,19 @@ def clavier(event):
                 canvas.move(robot[0], robot[1], robot[2])
 
 
+def creer_cible():
+    """dessine cible"""
+  
+    x = rd.randint(1,14)
+    y = rd.randint(1,14)
+    color=rd.choice(liste_couleur)   
+    x,y = x*COTE, y*COTE
+    carre = canvas.create_rectangle((x, y), (x+ 40, y+ 40), fill = color) #(#liste_couleur[i])
+    return carre
+
+
+
+
 ####################################
 # programme principal
 racine = tk.Tk()
@@ -218,6 +233,7 @@ canvas.grid()
 creer_tableau()
 creer_carre()
 quadrillage()
+creer_cible()
 bordure()
 
 robot1 = creer_robot(COULEUR_ROBOT1, VALEUR_ROBOT1)
