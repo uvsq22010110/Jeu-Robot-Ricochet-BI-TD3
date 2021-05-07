@@ -44,6 +44,15 @@ tableau = []
 ###################################
 # fonctions
 
+def angle_L():
+    i = rd.randint(1,14)
+    j = rd.randint(1,14)
+    canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "purple")
+    canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "purple")
+    print([i])
+    print([j])
+    tableau[i][j] = 5
+
 
 def creer_mur1():
     # random X
@@ -142,10 +151,10 @@ def coord_to_lg(x, y):
 
 
 def creer_tableau():
+    """Récupère les valeurs des cases en les plaçants dans un tableau"""
     global tableau
-    tableau = []
-    for i in range(n):
-        tableau = [[0] * n]
+    n = LARGEUR // COTE
+    tableau = [[0] * n for i in range(n)]
 
 
 def creer_carre():
@@ -260,7 +269,11 @@ robot3 = creer_robot(COULEUR_ROBOT3)
 robot4 = creer_robot(COULEUR_ROBOT4)
 
 creer_carre()
+creer_tableau()
 quadrillage()
 creation_de_mur()
+angle_L()
+
+print(tableau)
 
 racine.mainloop()
