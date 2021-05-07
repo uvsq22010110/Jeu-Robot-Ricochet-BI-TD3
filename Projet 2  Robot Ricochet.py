@@ -219,10 +219,12 @@ creer_tableau()
 creer_carre()
 quadrillage()
 bordure()
+
 robot1 = creer_robot(COULEUR_ROBOT1, VALEUR_ROBOT1)
 robot2 = creer_robot(COULEUR_ROBOT2, VALEUR_ROBOT2)
 robot3 = creer_robot(COULEUR_ROBOT3, VALEUR_ROBOT3)
 robot4 = creer_robot(COULEUR_ROBOT4, VALEUR_ROBOT4)
+
 print(tableau)
 
 racine.mainloop()
