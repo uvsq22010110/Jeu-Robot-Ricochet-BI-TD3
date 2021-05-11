@@ -47,9 +47,7 @@ def obstacle_mur():
         """obstacles collés aux murs  du plateau de jeu"""
         petit_mur = rd.choice(n)#mur de gauche
         canvas.create_line(0,petit_mur,40,petit_mur, fill='black', width = '4')
-        tableau[i][petit_mur] = 7
         canvas.create_line(640,petit_mur,600,petit_mur, fill = 'black',width = '4')
-        tableau[i][petit_mur] = 5
         canvas.create_line(petit_mur,0,petit_mur,40,fill='black', width ='4')
         canvas.create_line(petit_mur,640,petit_mur,600, fill = 'black', width='4')
 
