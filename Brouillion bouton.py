@@ -15,12 +15,12 @@ def score() :
     #fonction qui compte le nombre de déplacement du robot 
     c=0
     for i in range(1,10001) :
-        if robot1 = cible1
+        if robot1 == cible1:
             c = c+1
     lbl_delai.config(text="nombre de déplacement du robot : " + str(score))
 
 
-
+racine = tk.Tk()
 #création des boutons 
 bouton = tk.Button(racine, text="Commencer", command = start)
 bouton.grid()

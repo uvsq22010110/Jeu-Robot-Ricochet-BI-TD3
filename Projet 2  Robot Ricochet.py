@@ -40,6 +40,7 @@ VALEUR_ROBOT4 = 10
 
 # variables
 tableau = []
+valeur_touche = ""
 liste_couleur = ["red", "green", "blue", "yellow"]
 
 
@@ -196,11 +197,12 @@ def est_dans_le_robot(event):
 
 def clavier(event):
     """sert à déplacer les robots graces aux touches du clavier"""
-    global selection, valeur_robot, cible
+    global selection, valeur_robot, cible, valeur_touche
     touche = event.keysym # pour pouvoir reccuperer la touche appuyee
     if selection == True:
         x8, y8, x9, y9 = canvas.coords(robot[0])
-        if touche == "Up":
+        if touche == "Up" and valeur_touche != "Up":
+            valeur_touche = "Up"
             stop = 0
             k = 0 # constante
             monte = 0 # case de fin
@@ -252,7 +254,8 @@ def clavier(event):
             print("valeur départ",tableau[i][depart])
             print("valeur arrivée",tableau[i][j])
         
-        elif touche == "Down":
+        elif touche == "Down" and valeur_touche != "Up":
+            valeur_touche = "Down"
             k = 0
             stop = 0
             descends = 0 # case de fin
@@ -303,7 +306,8 @@ def clavier(event):
             print("valeur départ",tableau[i][depart])
             print("valeur arrivée",tableau[i][j])
              
-        elif touche == "Right":
+        elif touche == "Right" and valeur_touche != "Right":
+            valeur_touche = "Right"
             k = 0
             stop = 0
             droite = 0 # case de fin
@@ -348,7 +352,8 @@ def clavier(event):
             print("valeur départ",tableau[depart][j])
             print("valeur arrivée",tableau[i][j])
 
-        elif touche == "Left":
+        elif touche == "Left" and valeur_touche != "Left":
+            valeur_touche = "Left"
             k = 0
             stop = 0
             gauche = 0 # case de fin
@@ -421,10 +426,12 @@ def creer_cible():
 
 # Exemple pour Nojimba
 #def mur():
-    #i = rd.randint(1,15)
-    #j = 0
-    #mur = canvas.create_line(i*COTE,j*COTE,iCOTE,(j+1)*COTE, fill='black', width = '4')
-    #tableau[i][j] = 4
+    #for n in range(2):
+        #i = rd.randint(1,14)
+        #j = 0
+        #mur = canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, fill='black', width = '4')
+        #tableau[i][j] = 7
+        #tableau[i-1][j] = 8
 
 # programme principal
 racine = tk.Tk()

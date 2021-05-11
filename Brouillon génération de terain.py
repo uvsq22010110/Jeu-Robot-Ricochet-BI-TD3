@@ -47,7 +47,9 @@ def obstacle_mur():
         """obstacles collés aux murs  du plateau de jeu"""
         petit_mur = rd.choice(n)#mur de gauche
         canvas.create_line(0,petit_mur,40,petit_mur, fill='black', width = '4')
+        tableau[i][petit_mur] = 7
         canvas.create_line(640,petit_mur,600,petit_mur, fill = 'black',width = '4')
+        tableau[i][petit_mur] = 5
         canvas.create_line(petit_mur,0,petit_mur,40,fill='black', width ='4')
         canvas.create_line(petit_mur,640,petit_mur,600, fill = 'black', width='4')
 
@@ -76,7 +78,6 @@ def creer_carrer():
     carrer = canvas.create_rectangle((40*(i - 1), 40*(i - 1)), (40*j, 40*j), fill = "black")
 
 
-
 #####################################################Programme Principale##########################################################################
 racine = tk.Tk()
 racine.title("Jeu des robots")
@@ -86,7 +87,7 @@ canvas = tk.Canvas(racine, width=640, height=640, borderwidth=0, highlightthickn
 canvas.grid(column = 1, row = 0)
 canvas.pack()
 
-
+creer_tableau()
 creer_robot(COULEUR_ROBOT1)
 creer_robot(COULEUR_ROBOT2)
 creer_robot(COULEUR_ROBOT3)
@@ -97,4 +98,5 @@ obstacle_mur()
 creer_carrer()
 quadrillage()
 bordure()    
+print(tableau)
 racine.mainloop()
