@@ -38,8 +38,6 @@ VALEUR_ROBOT3 = 40
 VALEUR_ROBOT4 = 10
 
 
-Liste_de_type_de_mur = ['mur1','mur2','mur3','mur4','mur5','mur6','mur7','mur8']
-
 # variables
 tableau = []
 valeur_touche = ""
@@ -57,7 +55,7 @@ def quadrillage():
         y += COTE
     y0, y1 = 0, LARGEUR
     x = 0
-    while x <= LARGEUR: 
+    while x <= LARGEUR:
         canvas.create_line(x, y0, x, y1, fill=COULEUR_QUADRILLAGE)
         x += COTE
 
@@ -127,113 +125,6 @@ def creer_carre():
     i = 16 // 2
     j = 16 // 2 + 1
     carre = canvas.create_rectangle((COTE*(i - 1), COTE*(i - 1)), (COTE*j, COTE*j), fill = "black")
-
-def creation_de_mur():
-    import random
-    n = 0
-    while n != 18:
-        n = n + 1
-        Mur_choisie = random.choice(Liste_de_type_de_mur)
-        if Mur_choisie == 'mur1':
-            creer_mur1()
-        elif Mur_choisie == 'mur2':
-            creer_mur2()
-        elif Mur_choisie == 'mur3':
-            creer_mur3()
-        elif Mur_choisie == 'mur4':
-            creer_mur4()
-        elif Mur_choisie == 'mur5':
-            creer_mur5()
-        elif Mur_choisie == 'mur6':
-            creer_mur6()
-        elif Mur_choisie == 'mur7':
-            creer_mur7()
-        elif Mur_choisie == 'mur8':
-            creer_mur8()
-
-def creer_mur1():
-    # random i
-    # random j
-    #Exception : Si le mur est dans le carré au centre relancé la fonction créer_mur
-    i = rd.randint(1,14)
-    j = rd.randint(1,14)
-    if (6 < i < 11) and (6 < j < 11):
-        creer_mur1()
-    else:
-     mur1 = canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
-     mur1 = 1
-
-def creer_mur2():
-
-    i = rd.randint(2,14)
-    j = rd.randint(1,14)
-    if (6 < i < 11) and (6 < j < 11):
-        creer_mur2()
-    else:
-     mur2 = canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
-     mur2 = 2
-
-
-def creer_mur3():
-    i = rd.randint(1,14)
-    j = rd.randint(1,14)
-    if (6 < i < 11) and (6 < j < 11):
-        creer_mur3()
-    else:
-     mur3 = canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
-     mur3 = 3
-
-def creer_mur4():
-    i = rd.randint(1,14)
-    j = rd.randint(2,14)
-    if (6 < i < 11) and (6 < j < 11):
-        creer_mur4()
-    else:
-     mur4 = canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
-     mur4 = 4
-
-def creer_mur5():
-    i = rd.randint(2,13)
-    j = rd.randint(2,13)
-    if (6 < i < 11) and (6 < j < 11):
-        creer_mur5()
-    else:
-        mur5 = canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
-        mur5 = canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
-        mur5 = 5
-
-
-def creer_mur6():
-    i = rd.randint(2,13)
-    j = rd.randint(2,13)
-    if (6 < i < 11) and (6 < j < 11):
-        creer_mur6()
-    else:
-        mur6 = canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
-        mur6 = canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
-        mur6 = 6
-
-def creer_mur7():
-    i = rd.randint(2,13)
-    j = rd.randint(2,13)
-    if (6 < i < 11) and (6 < j < 11):
-        creer_mur7()
-    else:
-        mur7 = canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
-        mur7 = canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
-        mur7 = 7
-
-
-def creer_mur8():
-    i = rd.randint(2,13)
-    j = rd.randint(2,13)
-    if (6 < i < 11) and (6 < j < 11):
-        creer_mur8()
-    else:
-        mur8 = canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
-        mur8 = canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
-        mur8 = 8
-
 
 
 def creer_robot(couleur_robot, valeur_robot):
@@ -560,6 +451,7 @@ canvas.grid()
 creer_carre()
 quadrillage()
 <<<<<<< HEAD
+<<<<<<< HEAD
 creation_de_mur()
 =======
 creer_cible()
@@ -575,5 +467,7 @@ robot4 = creer_robot(COULEUR_ROBOT4,VALEUR_ROBOT4)
 
 print(tableau)
 >>>>>>> 098a1f5b6f61be6bf2875a2c42090d75e710f0f8
+=======
+>>>>>>> parent of 653369f (pull)
 
 racine.mainloop()
