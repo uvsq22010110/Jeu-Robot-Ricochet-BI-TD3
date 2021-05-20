@@ -423,6 +423,47 @@ def creer_cible():
     #canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
     #canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
     #tableau[i][j] = 5
+    
+ def angle_L():
+    i = rd.randint(1,14)
+    j = rd.randint(2,14)
+    if (6 < i < 11) and (6 < j < 11):
+        angle_L()
+    else:
+     canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
+     canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
+     tableau[i][j] = 5
+
+def angle_type6():
+    i = rd.randint(2,14)
+    j = rd.randint(2,14)
+    if (6 < i < 11) and (6 < j < 11):
+        angle_type6()
+    else:
+     canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
+     canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
+     tableau[i][j] = 6
+
+def angle_type7():
+    i = rd.randint(1,14)
+    j = rd.randint(1,14)
+    if (6 < i < 11) and (6 < j < 11):
+        angle_type7()
+    else:
+     canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
+     canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
+     tableau[i][j] = 7
+
+def angle_type8():
+    i = rd.randint(2,14)
+    j = rd.randint(1,14)
+    if (6 < i < 11) and (6 < j < 11):
+        angle_type8()
+    else:
+     canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
+     canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
+     tableau[i][j] = 8
+
 
 # Exemple pour Nojimba
 #def mur():
@@ -457,7 +498,11 @@ creation_de_mur()
 creer_cible()
 bordure()
 creer_tableau()
-#angle_L()
+
+angle_L()
+angle_type6()
+angle_type7()
+angle_type8()
 #mur()
 
 robot1 = creer_robot(COULEUR_ROBOT1,VALEUR_ROBOT1)
