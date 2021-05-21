@@ -441,16 +441,12 @@ def angle_type1():
     j = rd.randint(2,14)
     if (5 < i < 11) and (6 < j < 11):
         angle_type1()
-    elif [i,j] in Liste_des_coordonnées_prise:
-        print('problème 2 relance ')
+    elif [i,j] in Liste_des_coordonnées_prise or [i+1,j] in Liste_des_coordonnées_prise or [i,j+1] in Liste_des_coordonnées_prise or [i-1,j] in Liste_des_coordonnées_prise or [i,j-1] in Liste_des_coordonnées_prise or [i+1,j+1] in Liste_des_coordonnées_prise or [i-1,j-1] in Liste_des_coordonnées_prise or [i+1,j-1] in Liste_des_coordonnées_prise or [i-1,j+1] in Liste_des_coordonnées_prise or [i+2,j] in Liste_des_coordonnées_prise or [i,j+2] in Liste_des_coordonnées_prise or [i-2,j] in Liste_des_coordonnées_prise or [i,j-2] in Liste_des_coordonnées_prise:
+        print('problème angle 1 relance ')
         angle_type1()
     else:
      canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
      canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
-     print('test')
-     print(i)
-     print(j)
-     print('test')
      tableau[i][j] = 5
      Liste_des_coordonnées_prise.append([i,j])
 
@@ -460,8 +456,8 @@ def angle_type2():
     j = rd.randint(2,14)
     if (6 < i < 11) and (6 < j < 11):
         angle_type2()
-    elif [i,j] in Liste_des_coordonnées_prise:
-        print('problème relance')
+    elif [i,j] in Liste_des_coordonnées_prise or [i+1,j] in Liste_des_coordonnées_prise or [i,j+1] in Liste_des_coordonnées_prise or [i-1,j] in Liste_des_coordonnées_prise or [i,j-1] in Liste_des_coordonnées_prise or [i+1,j+1] in Liste_des_coordonnées_prise or [i-1,j-1] in Liste_des_coordonnées_prise or [i+1,j-1] in Liste_des_coordonnées_prise or [i-1,j+1] in Liste_des_coordonnées_prise or [i+2,j] in Liste_des_coordonnées_prise or [i,j+2] in Liste_des_coordonnées_prise or [i-2,j] in Liste_des_coordonnées_prise or [i,j-2] in Liste_des_coordonnées_prise:
+        print('problème angle 2 relance')
         angle_type2()
     else:
      canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
@@ -472,10 +468,10 @@ def angle_type2():
 def angle_type3():
     i = rd.randint(1,14)
     j = rd.randint(1,14)
-    if (6 < i < 11) and (5 < j < 10):
+    if (5 < i < 11) and (5 < j < 10):
         angle_type3()
-    elif [i,j] in Liste_des_coordonnées_prise:
-        print('problème relance')
+    elif [i,j] in Liste_des_coordonnées_prise or [i+1,j] in Liste_des_coordonnées_prise or [i,j+1] in Liste_des_coordonnées_prise or [i-1,j] in Liste_des_coordonnées_prise or [i,j-1] in Liste_des_coordonnées_prise or [i+1,j+1] in Liste_des_coordonnées_prise or [i-1,j-1] in Liste_des_coordonnées_prise or [i+1,j-1] in Liste_des_coordonnées_prise or [i-1,j+1] in Liste_des_coordonnées_prise or [i+2,j] in Liste_des_coordonnées_prise or [i,j+2] in Liste_des_coordonnées_prise or [i-2,j] in Liste_des_coordonnées_prise or [i,j-2] in Liste_des_coordonnées_prise:
+        print('problème angle 3 relance')
         angle_type3()
     else:
      canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
@@ -490,8 +486,8 @@ def angle_type4():
     j = rd.randint(1,14)
     if (6 < i < 11) and (5 < j < 10):
         angle_type4()
-    elif [i,j] in Liste_des_coordonnées_prise:
-        print('problème relance')
+    elif [i,j] in Liste_des_coordonnées_prise or [i+1,j] in Liste_des_coordonnées_prise or [i,j+1] in Liste_des_coordonnées_prise or [i-1,j] in Liste_des_coordonnées_prise or [i,j-1] in Liste_des_coordonnées_prise or [i+1,j+1] in Liste_des_coordonnées_prise or [i-1,j-1] in Liste_des_coordonnées_prise or [i+1,j-1] in Liste_des_coordonnées_prise or [i-1,j+1] in Liste_des_coordonnées_prise or [i+2,j] in Liste_des_coordonnées_prise or [i,j+2] in Liste_des_coordonnées_prise or [i-2,j] in Liste_des_coordonnées_prise or [i,j-2] in Liste_des_coordonnées_prise:
+        print('problème angle 4 relance')
         angle_type4()
     else:
      canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
