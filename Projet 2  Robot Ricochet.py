@@ -42,7 +42,8 @@ VALEUR_ROBOT4 = 10
 tableau = []
 valeur_touche = ""
 liste_couleur = ["red", "green", "blue", "yellow"]
-
+Liste_des_obstacles = ['obstacle_1','obstacle_2','obstacle_3','obstacle_4']
+Liste_des_coordonnées_prise = []
 
 # fonctions
 def quadrillage():
@@ -416,54 +417,80 @@ def creer_cible():
     cible = canvas.create_rectangle((x, y), (x+COTE, y+COTE), fill = color) #(#liste_couleur[i])
     return cible
 
-# Exemple pour JH
-#def angle_L():
-    #i = rd.randint(1,14)
-    #j = rd.randint(1,14)
-    #canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
-    #canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
-    #tableau[i][j] = 5
-    
- def angle_L():
+# Fonction pour les murs/obstacles
+def creation_obstacle():
+    import random
+    n = 0
+    while n != 18:
+        n = n + 1
+        Mur_choisie = random.choice(Liste_des_obstacles)
+        if Mur_choisie == 'obstacle_1':
+            angle_type1()
+        elif Mur_choisie == 'obstacle_2':
+            angle_type2()
+        elif Mur_choisie == 'obstacle_3':
+            angle_type3()
+        elif Mur_choisie == 'obstacle_4':
+            angle_type4()
+
+def angle_type1():
     i = rd.randint(1,14)
     j = rd.randint(2,14)
-    if (6 < i < 11) and (6 < j < 11):
-        angle_L()
+    if (5 < i < 11) and (6 < j < 11):
+        angle_type1()
+    elif [i,j] in Liste_des_coordonnées_prise or [i+1,j] in Liste_des_coordonnées_prise or [i,j+1] in Liste_des_coordonnées_prise or [i-1,j] in Liste_des_coordonnées_prise or [i,j-1] in Liste_des_coordonnées_prise or [i+1,j+1] in Liste_des_coordonnées_prise or [i-1,j-1] in Liste_des_coordonnées_prise or [i+1,j-1] in Liste_des_coordonnées_prise or [i-1,j+1] in Liste_des_coordonnées_prise or [i+2,j] in Liste_des_coordonnées_prise or [i,j+2] in Liste_des_coordonnées_prise or [i-2,j] in Liste_des_coordonnées_prise or [i,j-2] in Liste_des_coordonnées_prise:
+        print('problème angle 1 relance ')
+        angle_type1()
     else:
      canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
      canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
      tableau[i][j] = 5
+     Liste_des_coordonnées_prise.append([i,j])
 
-def angle_type6():
+
+def angle_type2():
     i = rd.randint(2,14)
     j = rd.randint(2,14)
     if (6 < i < 11) and (6 < j < 11):
-        angle_type6()
+        angle_type2()
+    elif [i,j] in Liste_des_coordonnées_prise or [i+1,j] in Liste_des_coordonnées_prise or [i,j+1] in Liste_des_coordonnées_prise or [i-1,j] in Liste_des_coordonnées_prise or [i,j-1] in Liste_des_coordonnées_prise or [i+1,j+1] in Liste_des_coordonnées_prise or [i-1,j-1] in Liste_des_coordonnées_prise or [i+1,j-1] in Liste_des_coordonnées_prise or [i-1,j+1] in Liste_des_coordonnées_prise or [i+2,j] in Liste_des_coordonnées_prise or [i,j+2] in Liste_des_coordonnées_prise or [i-2,j] in Liste_des_coordonnées_prise or [i,j-2] in Liste_des_coordonnées_prise:
+        print('problème angle 2 relance')
+        angle_type2()
     else:
      canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
      canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, width = 5 , fill = "black")
      tableau[i][j] = 6
+     Liste_des_coordonnées_prise.append([i,j])
 
-def angle_type7():
+def angle_type3():
     i = rd.randint(1,14)
     j = rd.randint(1,14)
-    if (6 < i < 11) and (6 < j < 11):
-        angle_type7()
+    if (5 < i < 11) and (5 < j < 10):
+        angle_type3()
+    elif [i,j] in Liste_des_coordonnées_prise or [i+1,j] in Liste_des_coordonnées_prise or [i,j+1] in Liste_des_coordonnées_prise or [i-1,j] in Liste_des_coordonnées_prise or [i,j-1] in Liste_des_coordonnées_prise or [i+1,j+1] in Liste_des_coordonnées_prise or [i-1,j-1] in Liste_des_coordonnées_prise or [i+1,j-1] in Liste_des_coordonnées_prise or [i-1,j+1] in Liste_des_coordonnées_prise or [i+2,j] in Liste_des_coordonnées_prise or [i,j+2] in Liste_des_coordonnées_prise or [i-2,j] in Liste_des_coordonnées_prise or [i,j-2] in Liste_des_coordonnées_prise:
+        print('problème angle 3 relance')
+        angle_type3()
     else:
      canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, width = 5 , fill = "black")
      canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
      tableau[i][j] = 7
+     Liste_des_coordonnées_prise.append([i,j])
 
-def angle_type8():
+
+
+def angle_type4():
     i = rd.randint(2,14)
     j = rd.randint(1,14)
-    if (6 < i < 11) and (6 < j < 11):
-        angle_type8()
+    if (6 < i < 11) and (5 < j < 10):
+        angle_type4()
+    elif [i,j] in Liste_des_coordonnées_prise or [i+1,j] in Liste_des_coordonnées_prise or [i,j+1] in Liste_des_coordonnées_prise or [i-1,j] in Liste_des_coordonnées_prise or [i,j-1] in Liste_des_coordonnées_prise or [i+1,j+1] in Liste_des_coordonnées_prise or [i-1,j-1] in Liste_des_coordonnées_prise or [i+1,j-1] in Liste_des_coordonnées_prise or [i-1,j+1] in Liste_des_coordonnées_prise or [i+2,j] in Liste_des_coordonnées_prise or [i,j+2] in Liste_des_coordonnées_prise or [i-2,j] in Liste_des_coordonnées_prise or [i,j-2] in Liste_des_coordonnées_prise:
+        print('problème angle 4 relance')
+        angle_type4()
     else:
      canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, width = 5 , fill = "black")
      canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, width = 5 , fill = "black")
      tableau[i][j] = 8
-
+     Liste_des_coordonnées_prise.append([i,j])
 
 # Exemple pour Nojimba
 #def mur():
@@ -498,11 +525,7 @@ creation_de_mur()
 creer_cible()
 bordure()
 creer_tableau()
-
-angle_L()
-angle_type6()
-angle_type7()
-angle_type8()
+creation_obstacle()
 #mur()
 
 robot1 = creer_robot(COULEUR_ROBOT1,VALEUR_ROBOT1)
@@ -511,6 +534,10 @@ robot3 = creer_robot(COULEUR_ROBOT3,VALEUR_ROBOT3)
 robot4 = creer_robot(COULEUR_ROBOT4,VALEUR_ROBOT4)
 
 print(tableau)
+print("")
+print('Liste_des_coordonnées_prise')
+print(Liste_des_coordonnées_prise)
+
 >>>>>>> 098a1f5b6f61be6bf2875a2c42090d75e710f0f8
 =======
 >>>>>>> parent of 653369f (pull)
