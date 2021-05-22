@@ -40,17 +40,36 @@ def bordure():
     mur3 = canvas.create_line(LARGEUR,0,LARGEUR,HAUTEUR, fill="black", width = '8')
     mur4 = canvas.create_line(0,0,0,HAUTEUR, fill="black", width = '8' )
 
-def obstacle_mur():
-    """à modifier afin qu'il est seuleument deux petit murs par côté"""
-    for i in range(2):
-        n = [80,160,240,320,400,480,560]
-        """obstacles collés aux murs  du plateau de jeu"""
-        petit_mur = rd.choice(n)#mur de gauche
-        canvas.create_line(0,petit_mur,40,petit_mur, fill='black', width = '4')
-        canvas.create_line(640,petit_mur,600,petit_mur, fill = 'black',width = '4')
-        canvas.create_line(petit_mur,0,petit_mur,40,fill='black', width ='4')
-        canvas.create_line(petit_mur,640,petit_mur,600, fill = 'black', width='4')
+def mur():
+    for n in range(2):
+        """mur du haut"""
+        i = rd.randint(2,14)
+        j = 0
+        mur = canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, fill='black', width = '4')
+        tableau[i][j] = 7
+        tableau[i-1][j] = 8
+    
+    for n in range(2):
+        """mur de gauche"""
+        j = rd.randint(2,14)
+        i = 0
+        mur = canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, fill ='black', width = '4')
+        tableau[i][j]= 7
+        tableau[i-1][j] = 5
+        
+        
+    for n in range(2):
+        """mur de droite"""
+        j = rd.randint(2,14)
+        i = 16
+        mur = canvas.create_line(i*COTE,j*COTE,(i-1)*COTE,j*COTE, fill ='black', width = '4')
 
+    for n in range(2):
+        """mur du bas"""
+        i = rd.randint(2,14)
+        j = 16
+        mur = canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, fill ='black', width = '4')
+        
 
 def creer_tableau():
     global tableau
@@ -92,9 +111,8 @@ creer_robot(COULEUR_ROBOT3)
 creer_robot(COULEUR_ROBOT4)
 
 
-obstacle_mur()
+mur()
 creer_carrer()
 quadrillage()
 bordure()    
 print(tableau)
-racine.mainloop()
