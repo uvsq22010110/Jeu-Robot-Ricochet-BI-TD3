@@ -247,6 +247,7 @@ def clavier(event):
     global selection, valeur_robot, cible1, etoile1, valeur_touche, cpt, gagne, total, nb_robot, score1, score2, score3,nom1, nom2, nom3
     touche = event.keysym # pour pouvoir réccupérer la touche appuyée
     if selection == True:
+        fic_move = open(rep + "\move.txt", "w")
         x8, y8, x9, y9 = canvas.coords(robot[0])
         gagne = 0
         # Flèche du haut
@@ -295,9 +296,20 @@ def clavier(event):
             print(monte-depart)
             canvas.move(robot[0], 0, ((monte-depart)*COTE))
             if (monte - depart) < 0:
+                # compteur
                 cpt += 1
                 tableau[i][j] = valeur + valeur_robot
                 tableau[i][depart] = valeur_depart - valeur_robot
+                # récupère valeurs et commandes effectuées dans un fichier texte
+                fic_move.write("Up")
+                fic_move.write(";")
+                fic_move.write(str(valeur_robot))
+                fic_move.write(";")
+                fic_move.write(str(i))
+                fic_move.write(";")
+                fic_move.write(str(j))
+                fic_move.write(";")
+                fic_move.write(str(monte-depart) + '\n')
                 if gagne == 1:
                 # faire disparraitre la cible lorsqu'elle est atteinte
                     canvas.delete(cible1)
@@ -354,9 +366,20 @@ def clavier(event):
             print(descends-depart)
             canvas.move(robot[0], 0, ((descends-depart)*COTE))
             if (descends - depart) > 0:
+                # compteur
                 cpt += 1
                 tableau[i][j] = valeur + valeur_robot
                 tableau[i][depart] = valeur_depart - valeur_robot
+                # récupère valeurs et commandes effectuées dans un fichier texte
+                fic_move.write("Down")
+                fic_move.write(";")
+                fic_move.write(str(valeur_robot))
+                fic_move.write(";")
+                fic_move.write(str(i))
+                fic_move.write(";")
+                fic_move.write(str(j))
+                fic_move.write(";")
+                fic_move.write(str(descends-depart) + '\n')
                 if gagne == 1:
                 # faire disparraitre la cible lorsqu'elle est atteinte
                     canvas.delete(cible1)
@@ -411,9 +434,20 @@ def clavier(event):
             print(droite-depart)
             canvas.move(robot[0], ((droite-depart)*COTE), 0)
             if (droite - depart) > 0:
+                # compteur
                 cpt += 1
                 tableau[i][j] = valeur + valeur_robot
                 tableau[depart][j] = valeur_depart - valeur_robot
+                # récupère valeurs et commandes effectuées dans un fichier texte
+                fic_move.write("Right")
+                fic_move.write(";")
+                fic_move.write(str(valeur_robot))
+                fic_move.write(";")
+                fic_move.write(str(i))
+                fic_move.write(";")
+                fic_move.write(str(j))
+                fic_move.write(";")
+                fic_move.write(str(droite-depart) + '\n')
                 if gagne == 1:
                 # faire disparraitre la cible lorsqu'elle est atteinte
                     canvas.delete(cible1)
@@ -468,9 +502,20 @@ def clavier(event):
             print(gauche-depart)
             canvas.move(robot[0], ((gauche-depart)*COTE), 0)
             if (gauche - depart) < 0:
+                # compteur
                 cpt += 1
                 tableau[i][j] = valeur + valeur_robot
                 tableau[depart][j] = valeur_depart - valeur_robot
+                # récupère valeurs et commandes effectuées dans un fichier texte
+                fic_move.write("Left")
+                fic_move.write(";")
+                fic_move.write(str(valeur_robot))
+                fic_move.write(";")
+                fic_move.write(str(i))
+                fic_move.write(";")
+                fic_move.write(str(j))
+                fic_move.write(";")
+                fic_move.write(str(gauche-depart) + '\n')
                 if gagne == 1:
                 # faire disparraitre la cible lorsqu'elle est atteinte
                     canvas.delete(cible1)
@@ -485,6 +530,7 @@ def clavier(event):
             print("valeur arrivée",tableau[i][j])
             print(tableau[i][j])
         nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
+        fic_move.close()
 
 def bordure():
     """creation bordures"""
@@ -709,6 +755,11 @@ def charger():
     nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
     fic_in.close()
     fic2_in.close()
+
+def sauvegarde_mouvement():
+    """Effectue un retour en arrière lorsque l'on clique dessus"""
+
+
 
 def taper_nom():
     """Rentrer son nom lorsqu'on rentre dans le top 3"""
