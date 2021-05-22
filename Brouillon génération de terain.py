@@ -69,7 +69,7 @@ def mur():
         i = rd.randint(2,14)
         j = 16
         mur = canvas.create_line(i*COTE,j*COTE,i*COTE,(j-1)*COTE, fill ='black', width = '4')
-        
+
 
 def creer_tableau():
     global tableau
@@ -111,8 +111,9 @@ creer_robot(COULEUR_ROBOT3)
 creer_robot(COULEUR_ROBOT4)
 
 
-mur()
 creer_carrer()
 quadrillage()
 bordure()    
 print(tableau)
+
+racine.mainloop()
