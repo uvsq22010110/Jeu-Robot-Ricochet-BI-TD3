@@ -2,7 +2,7 @@
 Le but du jeu est de faire rentrer le robot de bonne couleur dans sa cible associée en un minimun de déplacement, par exemple le robot jaune doit aller dans la cible jaune. Une fois rentré dans la cible, une nouvelle cible apparait dans un autre angle. Pour finir la partie vous devez faire rentrer 5 robots dans les cibles. Si vous faites partit du podium, un encadré s'affiche en bas de l'écran vous demandant votre prénom.
 Pour jouer au jeu du "Robot-Ricochet", rien de plus simple, cliquez sur un robot et faites le se déplacer grâce aux flèches situées sur votre clavier. Ensuite faites aller votre robot dans la cible qui lui est associée. Vous pouvez vous aider des autres robot pour y parvenir.
 
-**_Explications du programme_**
+# Explications du programme
 Grâce à la fonction "est_dans_le_robot", le progamme sait sur quel robot on a cliqué. Il pourra donc par la suite, déplacer uniquement ce robot-ci. Si vous voulez déplacer un autre robot il faut cliquer dessus.
 La fonction "clavier" ,elle, nous permet d'utiliser les flèches du clavier et possèdent des fonctions qui lui sont associées, comme par exemple si l'on appuit sur la flèche du haut, le robot va monter jusqu'à ce qu'il rencontre un mur/obstacle sur son chemin.
 
