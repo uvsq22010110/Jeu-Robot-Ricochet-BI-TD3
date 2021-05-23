@@ -45,7 +45,6 @@ VALEUR_ROBOT4 = 10
 tableau = []
 cpt = 0
 total = 0
-valeur_touche = ""
 couleur_precedente = ""
 couleur_cible = ""
 chargement = 0
@@ -76,9 +75,6 @@ def quadrillage():
         canvas.create_line(x, y0, x, y1, fill=COULEUR_QUADRILLAGE)
         x += COTE
 
-def coord_to_lg(x, y):
-    """Retourne les coordonnées"""
-    return x // COTE, y // COTE        
 
 def creer_tableau():
     """Récupère les valeurs des cases en les plaçants dans un tableau"""
@@ -197,7 +193,7 @@ def creer_robot(couleur_robot, valeur_robot, i, j):
     return [cercle, dx, dy]
     
 def est_dans_le_robot(event):
-    global robot, selection, valeur_robot
+    global robot, selection, valeur_robot, valeur_touche
     """Retourne True si on a cliqué sur un robot sinon False"""
     x0, y0, x1, y1 = canvas.coords(robot1[0])
     x2, y2, x3, y3 = canvas.coords(robot2[0])
@@ -214,6 +210,7 @@ def est_dans_le_robot(event):
         x = int(x0 // COTE)
         y = int(y0 // COTE)
         selection = True
+        valeur_touche = ""
     # est dans le robot vert
     elif x2 <= clic_x <= x3 and y2 <= clic_y <= y3:
         print("Tu as cliqué sur le robot vert")
@@ -222,6 +219,7 @@ def est_dans_le_robot(event):
         x = int(x2 // COTE)
         y = int(y2 // COTE)
         selection = True
+        valeur_touche = ""
     # est dans le robot bleu
     elif x4 <= clic_x <= x5 and y4 <= clic_y <= y5:
         print("Tu as cliqué sur le robot blue")
@@ -230,6 +228,7 @@ def est_dans_le_robot(event):
         x = int(x4 // COTE)
         y = int(y4 // COTE)
         selection = True
+        valeur_touche = ""
     # est dans le robot jaune
     elif x6 <= clic_x <= x7 and y6 <= clic_y <= y7:
         print("Tu as cliqué sur le robot jaune")
@@ -238,16 +237,16 @@ def est_dans_le_robot(event):
         x = int(x6 // COTE)
         y = int(y6 // COTE)
         selection = True
+        valeur_touche = ""
     else:
         selection = False
     return selection, valeur_robot
 
 def clavier(event):
     """Sert à déplacer les robots grâces aux touches du clavier"""
-    global selection, valeur_robot, cible1, etoile1, valeur_touche, cpt, gagne, total, nb_robot, score1, score2, score3,nom1, nom2, nom3
+    global selection, valeur_robot, cible1, etoile1, valeur_touche, cpt, gagne, total, nb_robot, fic_move
     touche = event.keysym # pour pouvoir réccupérer la touche appuyée
     if selection == True:
-        fic_move = open(rep + "\move.txt", "w")
         x8, y8, x9, y9 = canvas.coords(robot[0])
         gagne = 0
         # Flèche du haut
@@ -301,6 +300,7 @@ def clavier(event):
                 tableau[i][j] = valeur + valeur_robot
                 tableau[i][depart] = valeur_depart - valeur_robot
                 # récupère valeurs et commandes effectuées dans un fichier texte
+                fic_move = open(rep + "\move.txt", "a")
                 fic_move.write("Up")
                 fic_move.write(";")
                 fic_move.write(str(valeur_robot))
@@ -310,6 +310,7 @@ def clavier(event):
                 fic_move.write(str(j))
                 fic_move.write(";")
                 fic_move.write(str(monte-depart) + '\n')
+                fic_move.close()
                 if gagne == 1:
                 # faire disparraitre la cible lorsqu'elle est atteinte
                     canvas.delete(cible1)
@@ -371,6 +372,7 @@ def clavier(event):
                 tableau[i][j] = valeur + valeur_robot
                 tableau[i][depart] = valeur_depart - valeur_robot
                 # récupère valeurs et commandes effectuées dans un fichier texte
+                fic_move = open(rep + "\move.txt", "a")
                 fic_move.write("Down")
                 fic_move.write(";")
                 fic_move.write(str(valeur_robot))
@@ -380,6 +382,7 @@ def clavier(event):
                 fic_move.write(str(j))
                 fic_move.write(";")
                 fic_move.write(str(descends-depart) + '\n')
+                fic_move.close()
                 if gagne == 1:
                 # faire disparraitre la cible lorsqu'elle est atteinte
                     canvas.delete(cible1)
@@ -439,6 +442,7 @@ def clavier(event):
                 tableau[i][j] = valeur + valeur_robot
                 tableau[depart][j] = valeur_depart - valeur_robot
                 # récupère valeurs et commandes effectuées dans un fichier texte
+                fic_move = open(rep + "\move.txt", "a")
                 fic_move.write("Right")
                 fic_move.write(";")
                 fic_move.write(str(valeur_robot))
@@ -448,6 +452,7 @@ def clavier(event):
                 fic_move.write(str(j))
                 fic_move.write(";")
                 fic_move.write(str(droite-depart) + '\n')
+                fic_move.close()
                 if gagne == 1:
                 # faire disparraitre la cible lorsqu'elle est atteinte
                     canvas.delete(cible1)
@@ -507,6 +512,7 @@ def clavier(event):
                 tableau[i][j] = valeur + valeur_robot
                 tableau[depart][j] = valeur_depart - valeur_robot
                 # récupère valeurs et commandes effectuées dans un fichier texte
+                fic_move = open(rep + "\move.txt", "a")
                 fic_move.write("Left")
                 fic_move.write(";")
                 fic_move.write(str(valeur_robot))
@@ -516,6 +522,7 @@ def clavier(event):
                 fic_move.write(str(j))
                 fic_move.write(";")
                 fic_move.write(str(gauche-depart) + '\n')
+                fic_move.close()
                 if gagne == 1:
                 # faire disparraitre la cible lorsqu'elle est atteinte
                     canvas.delete(cible1)
@@ -530,7 +537,6 @@ def clavier(event):
             print("valeur arrivée",tableau[i][j])
             print(tableau[i][j])
         nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
-        fic_move.close()
 
 def bordure():
     """creation bordures"""
@@ -637,6 +643,9 @@ def repertoire_courant():
     path, filename = os.path.split(absFilePath)
     rep = path
     print("repertoire :", rep)
+    # pour récupérer les informations sur les déplacements éffectués par les différents robots
+    fic_move = open(rep + "\move.txt", "w")
+    
 
 def sauvegarder():
     """Récupère les valeurs du tableau dans un fichier texte"""
@@ -676,7 +685,7 @@ def meilleur_score5():
     score_2e.config(text=nom2 + " : " + str(score2), font=("Helvetica", "15"))
     score_3e.config(text=nom3 + " : " + str(score3), font=("Helvetica", "15"))
 
-def charger():
+def reprendre_la_partie():
     """Récupère les valeurs comprises dans le tableau de sauvegarde et les ré-affichent """
     global ligne, i, j, k, l, chargement, robot1, robot2, robot3, robot4, cible1, etoile1, cpt, total, nb_robot, couleur_cible
     chargement = 1
@@ -756,9 +765,125 @@ def charger():
     fic_in.close()
     fic2_in.close()
 
+def recommencer():
+    """Récupère les valeurs comprises dans le tableau de sauvegarde et les ré-affichent """
+    global ligne, i, j, k, l, chargement, robot1, robot2, robot3, robot4, cible1, etoile1, cpt, total, nb_robot, couleur_cible
+    chargement = 1
+    canvas.delete(ALL)
+    creer_carre()
+    quadrillage()
+    bordure()
+    fic_in = open(rep + "\sauvegarde_initiale.txt", "r")
+    ligne = fic_in.readline()
+    i = 0
+    while ligne:
+        for j in range(16):
+            l = ligne.split(';')
+            k = l[j]
+            tableau[i][j] = int(k)
+            if k == '1':
+                mur = canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, fill='black', width = '4')
+            if k == '2':
+                mur = canvas.create_line((i+1)*COTE,j*COTE,(i+1)*COTE,(j+1)*COTE, fill='black', width = '4')
+            if k == '3':
+                mur = canvas.create_line(i*COTE,(j+1)*COTE,(i+1)*COTE,(j+1)*COTE, fill='black', width = '4')
+            if k == '4':
+                mur = canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, fill='black', width = '4')
+            if k == '5':
+                mur = canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, fill='black', width = '4')
+                mur = canvas.create_line(i*COTE,(j+1)*COTE,(i+1)*COTE,(j+1)*COTE, fill='black', width = '4')
+            if k == '6':
+                mur = canvas.create_line((i+1)*COTE,j*COTE,(i+1)*COTE,(j+1)*COTE, fill='black', width = '4')
+                mur = canvas.create_line(i*COTE,(j+1)*COTE,(i+1)*COTE,(j+1)*COTE, fill='black', width = '4')
+            if k == '7':
+                mur = canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, fill='black', width = '4')
+                mur = canvas.create_line(i*COTE,j*COTE,i*COTE,(j+1)*COTE, fill='black', width = '4')
+            if k == '8':
+                mur = canvas.create_line(i*COTE,j*COTE,(i+1)*COTE,j*COTE, fill='black', width = '4')
+                mur = canvas.create_line((i+1)*COTE,j*COTE,(i+1)*COTE,(j+1)*COTE, fill='black', width = '4')
+            if 0 <= (int(k) - VALEUR_ROBOT1) <= 8:
+                x0, y0, x1, y1 = i*COTE ,j*COTE , (i+1)*COTE, (j+1)*COTE
+                robot1 = creer_robot(COULEUR_ROBOT1,VALEUR_ROBOT1, i, j)
+            if 0 <= (int(k) - VALEUR_ROBOT2) <= 8:
+                x2, y2, x3, y3 = i*COTE ,j*COTE , (i+1)*COTE, (j+1)*COTE
+                robot2 = creer_robot(COULEUR_ROBOT2,VALEUR_ROBOT2, i, j)
+            if 0 <= (int(k) - VALEUR_ROBOT3) <= 8:
+                x4, y4, x5, y5 = i*COTE ,j*COTE , (i+1)*COTE, (j+1)*COTE
+                robot3 = creer_robot(COULEUR_ROBOT3,VALEUR_ROBOT3, i, j)
+            if 0 <= (int(k) - VALEUR_ROBOT4) <= 8:
+                x6, y6, x7, y7 = i*COTE ,j*COTE , (i+1)*COTE, (j+1)*COTE
+                robot4 = creer_robot(COULEUR_ROBOT4,VALEUR_ROBOT4, i, j)
+            if 0 <= (int(k) - VALEUR_ROBOT1*10) <= 8:
+                cible1 = canvas.create_rectangle(i*COTE+4,j*COTE+4,(i+1)*COTE-4,(j+1)*COTE-4, fill=COULEUR_ROBOT1)
+                couleur_precedente = COULEUR_ROBOT1
+                # dessin de l'etoile au cercle de la cible
+                etoile1 = canvas.create_polygon(19+i*COTE,4+j*COTE,15.2+i*COTE,14.8+j*COTE,4+i*COTE,14.8+j*COTE,13.2+i*COTE,21.6+j*COTE,9.6+i*COTE,32.6+j*COTE,19+i*COTE,26.6+j*COTE,28.6+i*COTE,32.6+j*COTE,24.6+i*COTE,21.6+j*COTE,34+i*COTE,14.8+j*COTE,22.6+i*COTE,14.8+j*COTE,fill="black")
+            if 0 <= (int(k) - VALEUR_ROBOT2*10) <= 8:
+                cible1 = canvas.create_rectangle(i*COTE+4,j*COTE+4,(i+1)*COTE-4,(j+1)*COTE-4, fill=COULEUR_ROBOT2)
+                couleur_precedente = COULEUR_ROBOT2
+                # dessin de l'etoile au cercle de la cible
+                etoile1 = canvas.create_polygon(19+i*COTE,4+j*COTE,15.2+i*COTE,14.8+j*COTE,4+i*COTE,14.8+j*COTE,13.2+i*COTE,21.6+j*COTE,9.6+i*COTE,32.6+j*COTE,19+i*COTE,26.6+j*COTE,28.6+i*COTE,32.6+j*COTE,24.6+i*COTE,21.6+j*COTE,34+i*COTE,14.8+j*COTE,22.6+i*COTE,14.8+j*COTE,fill="black")
+            if 0 <= (int(k) - VALEUR_ROBOT3*10) <= 8:
+                cible1 = canvas.create_rectangle(i*COTE+4,j*COTE+4,(i+1)*COTE-4,(j+1)*COTE-4, fill=COULEUR_ROBOT3)
+                couleur_precedente = COULEUR_ROBOT3
+                # dessin de l'etoile au cercle de la cible
+                etoile1 = canvas.create_polygon(19+i*COTE,4+j*COTE,15.2+i*COTE,14.8+j*COTE,4+i*COTE,14.8+j*COTE,13.2+i*COTE,21.6+j*COTE,9.6+i*COTE,32.6+j*COTE,19+i*COTE,26.6+j*COTE,28.6+i*COTE,32.6+j*COTE,24.6+i*COTE,21.6+j*COTE,34+i*COTE,14.8+j*COTE,22.6+i*COTE,14.8+j*COTE,fill="black")
+            if 0 <= (int(k) - VALEUR_ROBOT4*10) <= 8:
+                cible1 = canvas.create_rectangle(i*COTE+4,j*COTE+4,(i+1)*COTE-4,(j+1)*COTE-4, fill=COULEUR_ROBOT4)
+                couleur_precedente = COULEUR_ROBOT4
+                # dessin de l'etoile au cercle de la cible
+                etoile1 = canvas.create_polygon(19+i*COTE,4+j*COTE,15.2+i*COTE,14.8+j*COTE,4+i*COTE,14.8+j*COTE,13.2+i*COTE,21.6+j*COTE,9.6+i*COTE,32.6+j*COTE,19+i*COTE,26.6+j*COTE,28.6+i*COTE,32.6+j*COTE,24.6+i*COTE,21.6+j*COTE,34+i*COTE,14.8+j*COTE,22.6+i*COTE,14.8+j*COTE,fill="black")
+        ligne = fic_in.readline()
+        i += 1
+    fic2_in = open(rep + "\sauvegarde_initiale_score_en_cours.txt", "r")
+    cpt = int(fic2_in.readline())
+    nb_robot = int(fic2_in.readline())
+    couleur_cible = str(fic2_in.readline())
+    total = int(fic2_in.readline())
+    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements")
+    nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
+    fic_in.close()
+    fic2_in.close()
+
 def sauvegarde_mouvement():
     """Effectue un retour en arrière lorsque l'on clique dessus"""
+    global descends, monte, droite, gauche, depart
+    fic_move = open(rep + "\move.txt", "r")
+    ligne = fic_move.readline()
+    while ligne:
+        if ligne != "" :
+            l = ligne.split(';')
+        ligne = fic_move.readline()
+    if l[0] == "Up":
+        canvas.move(robot[0], 0, -int(l[4])*COTE)
+    elif l[0] == "Down":
+        canvas.move(robot[0], 0, -int(l[4])*COTE, 0)
+    elif l[0] == "Left":
+        canvas.move(robot[0], -int(l[4])*COTE, 0)
+    elif l[0] == "Right":
+        canvas.move(robot[0], -int(l[4])*COTE, 0)
+    fic_move.close()
 
+def sauvegarde_initiale():
+    """Récupère les valeurs du tableau dans un fichier texte"""
+    # récupération des valeurs du tableau dans un fichier texte
+    fic_out = open(rep + "\sauvegarde_initiale.txt", "w")
+    for i in range(16):
+        for j in range(16):
+            fic_out.write(str(tableau[i][j]))
+            fic_out.write(';')
+        fic_out.write('\n')
+    # récupération des valeurs : compteur, nombre de robots, couleur de la cible, total dans un fichier texte
+    fic2_out = open(rep + "\sauvegarde_initiale_score_en_cours.txt", "w")
+    fic2_out.write(str(cpt))
+    fic2_out.write('\n')
+    fic2_out.write(str(nb_robot))
+    fic2_out.write('\n')
+    fic2_out.write(couleur_precedente)
+    fic2_out.write('\n')
+    fic2_out.write(str(total))
+    fic_out.close()
+    fic2_out.close()
 
 
 def taper_nom():
@@ -826,17 +951,17 @@ canvas = tk.Canvas(racine, width= LARGEUR, height= HAUTEUR, bg= "navajo white")
 nb_de_deplacements = tk.Label(racine, text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
 mvt_total = tk.Label(racine, text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements", font=("Helvetica", "15"))
 meilleurs_score = tk.Label(racine, text="Meilleurs scores pour 5 robots de rentré : ", font=("Helvetica", "15"))
-podium_1 = tk.Label(racine, text="1er", font=("Helvetica", "20"), bg = "gold")
+podium_1 = tk.Label(racine, text="1er", font=("Helvetica", "20"), bg = "gold", relief = "raised")
 score_1er = tk.Label(racine, text="", font=("Helvetica", "15"))
-podium_2 = tk.Label(racine, text="2ème", font=("Helvetica", "20"), bg = "silver")
+podium_2 = tk.Label(racine, text="2ème", font=("Helvetica", "20"), bg = "silver", relief = "raised")
 score_2e = tk.Label(racine, text="", font=("Helvetica", "15"))
-podium_3 = tk.Label(racine, text="3ème", font=("Helvetica", "20"), bg = "orange")
+podium_3 = tk.Label(racine, text="3ème", font=("Helvetica", "20"), bg = "orange", relief = "raised")
 score_3e = tk.Label(racine, text="", font=("Helvetica", "15"))
 # buttons
-sauvegarde = tk.Button(text = "Sauvegarde", font=("Helvetica", "15"), fg='blue', command = sauvegarder)
-charge = tk.Button(text = "Charger partie", font=("Helvetica", "15"), fg='red', command = charger)
-retour_en_arriere = tk.Button(text = "Retour en arrière", font=("Helvetica", "15"), fg='purple')
-recommencer = tk.Button(text = "Recommencer", font=("Helvetica", "15"), fg='magenta')
+sauvegarde = tk.Button(text = "Sauvegarde", font=("Helvetica", "15"), fg='blue', relief = "raised", borderwidth = 5, command = sauvegarder)
+reprendre = tk.Button(text = "Reprendre la partie sauvegardée", font=("Helvetica", "15"), fg='red', relief = "raised", borderwidth = 5, command = reprendre_la_partie)
+retour_en_arriere = tk.Button(text = "Retour en arrière", font=("Helvetica", "15"), fg='purple', relief = "raised", borderwidth = 5, command = sauvegarde_mouvement)
+recommencer_partie = tk.Button(text = "Recommencer", font=("Helvetica", "15"), fg='magenta', relief = "raised", borderwidth = 5, command = recommencer)
 
 # liaison des événements
 canvas.bind("<Button-1>", est_dans_le_robot)
@@ -857,9 +982,9 @@ nb_de_deplacements.grid(row = 0, column = 0)
 mvt_total.grid(row = 0, column = 1)
 # bouttons
 sauvegarde.grid(row = 6, column=0)
-charge.grid(row = 6, column=1)
+reprendre.grid(row = 6, column=1)
 retour_en_arriere.grid(row = 6, column=2)
-recommencer.grid(row = 6, column=3)
+recommencer_partie.grid(row = 6, column=3)
 
 # programme principal
 creer_carre()
@@ -874,5 +999,6 @@ robot2 = creer_robot(COULEUR_ROBOT2,VALEUR_ROBOT2, 1, 1)
 robot3 = creer_robot(COULEUR_ROBOT3,VALEUR_ROBOT3, 1, 1)
 robot4 = creer_robot(COULEUR_ROBOT4,VALEUR_ROBOT4, 1, 1)
 placer_cible()
+sauvegarde_initiale()
 
 racine.mainloop()
