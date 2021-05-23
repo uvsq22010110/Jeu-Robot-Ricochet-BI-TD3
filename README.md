@@ -1,3 +1,5 @@
+#But du jeu
+
 Le but du jeu est de faire rentrer le robot de bonne couleur dans sa cible associée en un minimun de déplacement, par exemple le robot jaune doit aller dans la cible jaune.
 Pour jouer au jeu du "Robot-Ricochet", cliquer sur un robot et faites le se déplacer grâce aux flèches situées sur votre clavier.
 Ensuite faites aller votre robot dans la cible qui lui est associée. Vous pouvez vous aider des autres robot pour y parvenir.
@@ -6,25 +8,25 @@ Grâce à la fonction "est_dans_le_robot", le progamme sait sur quel robot on a 
 La fonction "clavier" ,elle, nous permet d'utiliser les flèches du clavier et possèdent des fonctions qui lui sont associées, comme par exemple si l'on appuit sur la flèche du haut, le robot va monter jusqu'à ce qu'il rencontre un mur/obstacle sur son chemin.
 
 Pour que le robot puisse détecter les cases, savoir si elles sont vides ou pleines, nous avons rentrer les valeurs dans un tableau:
-# pour les robots
+* pour les robots
 - robot jaune = 10
 - robot vert = 20
 - robot rouge = 30
 - robot bleu = 40
 
-# pour les murs
+* pour les murs
 - bordure de gauche = 1
 - bordure de droite = 2
 - bordure du bas = 3
 - bordure du haut = 4
 
-# pour les angles
+* pour les angles
 - bordure de gauche + bordure du bas = 5
 - bordure de droite + bordure du bas = 6
 - bordure de gauche + bordure du haut = 7
 - bordure de droite + bordure du haut = 8
 
-# pour le carré central 
+* pour le carré central 
 - pour les 4 cases = 500
 
 La fonction "placer la cible" permet de placer la cible dans un angle créer par les murs, pour chaque partie elle peut prendre une des 4 couleurs asoocier au robot.
