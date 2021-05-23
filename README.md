@@ -8,6 +8,7 @@ Grâce à la fonction "est_dans_le_robot", le progamme sait sur quel robot on a 
 La fonction "clavier" ,elle, nous permet d'utiliser les flèches du clavier et possèdent des fonctions qui lui sont associées, comme par exemple si l'on appuit sur la flèche du haut, le robot va monter jusqu'à ce qu'il rencontre un mur/obstacle sur son chemin.
 
 Pour que le robot puisse détecter les cases, savoir si elles sont vides ou pleines, nous avons rentrer les valeurs dans un tableau:
+
 **pour les robots**
 - robot jaune = 10
 - robot vert = 20
@@ -20,13 +21,13 @@ Pour que le robot puisse détecter les cases, savoir si elles sont vides ou plei
 - bordure du bas = 3
 - bordure du haut = 4
 
-* pour les angles
+**pour les angles**
 - bordure de gauche + bordure du bas = 5
 - bordure de droite + bordure du bas = 6
 - bordure de gauche + bordure du haut = 7
 - bordure de droite + bordure du haut = 8
 
-* pour le carré central 
+**pour le carré central**
 - pour les 4 cases = 500
 
 La fonction "placer la cible" permet de placer la cible dans un angle créer par les murs, pour chaque partie elle peut prendre une des 4 couleurs asoocier au robot.
