@@ -1,8 +1,4 @@
 0
 0
-<<<<<<< HEAD
 green
-=======
-yellow
->>>>>>> 23ae214917f97d81becdd4a0ac7af9057d449234
 0

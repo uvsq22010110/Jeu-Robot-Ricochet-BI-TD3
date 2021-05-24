@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-Coraline;31;moi;56;wall-e;86
-=======
-Jacques-Henri;25;Coraline;31;moi;56
->>>>>>> 23ae214917f97d81becdd4a0ac7af9057d449234
+Coraline;20;Jacques-Henri;25;Coraline;31
