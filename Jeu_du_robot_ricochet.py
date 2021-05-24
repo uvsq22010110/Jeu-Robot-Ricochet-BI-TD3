@@ -18,6 +18,7 @@
 import tkinter as tk
 import random as rd
 import os
+import time
 from tkinter.constants import ALL
 
 
@@ -240,6 +241,7 @@ def est_dans_le_robot(event):
         valeur_touche = ""
     else:
         selection = False
+    perdu.grid_forget()
     return selection, valeur_robot
 
 def clavier(event):
@@ -289,7 +291,7 @@ def clavier(event):
                         gagne = 1
                     else:
                         stop = 1
-                        j = j - 1
+                        j = j + 1
                         valeur = tableau[i][j]
                 monte = j
             print(monte-depart)
@@ -621,15 +623,20 @@ def placer_cible():
     etoile1 = canvas.create_polygon(19+i*COTE,4+j*COTE,15.2+i*COTE,14.8+j*COTE,4+i*COTE,14.8+j*COTE,13.2+i*COTE,21.6+j*COTE,9.6+i*COTE,32.6+j*COTE,19+i*COTE,26.6+j*COTE,28.6+i*COTE,32.6+j*COTE,24.6+i*COTE,21.6+j*COTE,34+i*COTE,14.8+j*COTE,22.6+i*COTE,14.8+j*COTE,fill="black")
 
 def gagner():
-    """entre en jeu lorsqu'on a fait rentrer les 5 robots"""
-    global score1, score2, score3, nom, nom1, nom2, nom3, nb_robot, total
+    """si on gagne, nous demande d'inscrire notre nom sinon affiche dommage"""
+    global score1, score2, score3, nom, nom1, nom2, nom3, nb_robot, total, perdu
     if nb_robot == 5:
         if total < int(score3):
             demande_nom()
         else:
-            print("dommage")
+            perdu = tk.Label(racine, text="Dommage, vous ne faites pas parti(e) du podium. Essayez encore!", font=("Helvetica", "15"), bg = "navajo white")
+            perdu.grid(row=7, columnspan=5)
             nb_robot = 0
             total = 0
+            cpt = 0
+            mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacement(s)")
+            nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacement(s)", font=("Helvetica", "15"))
+
     cpt = 0
     placer_cible()
     racine.bind("<Key>", clavier)
@@ -761,8 +768,8 @@ def reprendre_la_partie():
     nb_robot = int(fic2_in.readline())
     couleur_cible = str(fic2_in.readline())
     total = int(fic2_in.readline())
-    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements")
-    nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
+    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacement(s)")
+    nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacement(s)", font=("Helvetica", "15"))
     fic_in.close()
     fic2_in.close()
 
@@ -841,8 +848,8 @@ def recommencer():
     nb_robot = int(fic2_in.readline())
     couleur_cible = str(fic2_in.readline())
     total = int(fic2_in.readline())
-    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements")
-    nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
+    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacement(s)")
+    nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacement(s)", font=("Helvetica", "15"))
     fic_in.close()
     fic2_in.close()
 
@@ -864,7 +871,7 @@ def sauvegarde_mouvement():
     elif l[0] == "Right":
         canvas.move(robot[0], -int(l[4])*COTE, 0)
     cpt -= 1
-    nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
+    nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacement(s)", font=("Helvetica", "15"))
     fic_move.close()
 
 def sauvegarde_initiale():
@@ -926,7 +933,7 @@ def taper_nom():
     meilleur_score5()
     nb_robot = 0
     total = 0
-    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements")
+    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacement(s)")
     e1.grid_forget()
     bouton.grid_forget()
     lab1.grid_forget()
@@ -935,12 +942,12 @@ def demande_nom():
     """Demande le nom du joueur"""
     global e1, racine, bouton, lab1
     racine.unbind("<Key>")
-    lab1 = tk.Label(racine, text="Taper votre nom : ", font=("Helvetica", "15"), bg = "navajo white")
-    lab1.grid(row=7, column=0)
+    lab1 = tk.Label(racine, text="Bravo, vous faites parti(e) du top 3 ! Veuillez entrer votre nom : ", font=("Helvetica", "15"), bg = "navajo white")
+    lab1.grid(row=7, columnspan=2)
     e1 = tk.Entry(racine, width=20, font=("Helvetica", "15"), bg="navajo white")
-    e1.grid(row=7, column=1)
+    e1.grid(row=7, column=2)
     bouton = tk.Button(racine, text='Valider', command=taper_nom, font=("Helvetica", "15"))
-    bouton.grid(row=7, column=2)
+    bouton.grid(row=7, column=3)
 
 
 # programme principal
@@ -951,9 +958,9 @@ racine.title("Jeu des robots")
 # canvas
 canvas = tk.Canvas(racine, width= LARGEUR, height= HAUTEUR, bg= "navajo white")
 #labels
-nb_de_deplacements = tk.Label(racine, text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
-mvt_total = tk.Label(racine, text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements", font=("Helvetica", "15"))
-meilleurs_score = tk.Label(racine, text="Meilleurs scores pour 5 robots de rentré : ", font=("Helvetica", "15"))
+nb_de_deplacements = tk.Label(racine, text="Tu as fait: " + str(cpt) + " déplacement(s)", font=("Helvetica", "15"))
+mvt_total = tk.Label(racine, text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacement(s)", font=("Helvetica", "15"))
+meilleurs_score = tk.Label(racine, text="Meilleurs scores pour 5 robots de rentrés : ", font=("Helvetica", "15"))
 podium_1 = tk.Label(racine, text="1er", font=("Helvetica", "20"), bg = "gold", relief = "raised")
 score_1er = tk.Label(racine, text="", font=("Helvetica", "15"))
 podium_2 = tk.Label(racine, text="2ème", font=("Helvetica", "20"), bg = "silver", relief = "raised")
@@ -972,22 +979,22 @@ racine.bind("<Key>", clavier)
 
 # placement des widgets
 # canvas
-canvas.grid(row = 1, columnspan=2, rowspan = 5)
+canvas.grid(row=1, columnspan=2, rowspan=5)
 # labels
-meilleurs_score.grid(row = 1, column = 2, columnspan=2)
-podium_1.grid(row = 2, column = 2, columnspan=2)
-score_1er.grid(row = 3, column = 2, columnspan=2)
-podium_2.grid(row = 4, column = 2)
-score_2e.grid(row = 5, column = 2)
-podium_3.grid(row = 4, column = 3)
-score_3e.grid(row = 5, column = 3)
-nb_de_deplacements.grid(row = 0, column = 0)
-mvt_total.grid(row = 0, column = 1)
+meilleurs_score.grid(row=1, column=2, columnspan=2)
+podium_1.grid(row=2, column=2, columnspan=2)
+score_1er.grid(row=3, column=2, columnspan=2)
+podium_2.grid(row=4, column=2)
+score_2e.grid(row=5, column=2)
+podium_3.grid(row=4, column=3)
+score_3e.grid(row=5, column=3)
+nb_de_deplacements.grid(row = 0, column=0)
+mvt_total.grid(row=0, column=1)
 # bouttons
-sauvegarde.grid(row = 6, column=0)
-reprendre.grid(row = 6, column=1)
-retour_en_arriere.grid(row = 6, column=2)
-recommencer_partie.grid(row = 6, column=3)
+sauvegarde.grid(row=6, column=0)
+reprendre.grid(row=6, column=1)
+retour_en_arriere.grid(row=6, column=2)
+recommencer_partie.grid(row=6, column=3)
 
 # programme principal
 creer_carre()
