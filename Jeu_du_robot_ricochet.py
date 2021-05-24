@@ -320,7 +320,7 @@ def clavier(event):
                     tableau[i][j] = tableau[i][j] - (valeur_robot*10)
                     total = total + cpt
                     nb_robot += 1
-                    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements", font=("Helvetica", "15"))
+                    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacement(s)", font=("Helvetica", "15"))
                     cpt = 0
                     gagner()
             print("valeur départ",tableau[i][depart])
@@ -392,7 +392,7 @@ def clavier(event):
                     tableau[i][j] = tableau[i][j] - (valeur_robot*10)
                     total = total + cpt
                     nb_robot += 1
-                    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements", font=("Helvetica", "15"))
+                    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacement(s)", font=("Helvetica", "15"))
                     cpt = 0
                     gagner()
             print("valeur départ",tableau[i][depart])
@@ -462,7 +462,7 @@ def clavier(event):
                     tableau[i][j] = tableau[i][j] - (valeur_robot*10)
                     total = total + cpt
                     nb_robot += 1
-                    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements", font=("Helvetica", "15"))
+                    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacement(s)", font=("Helvetica", "15"))
                     cpt = 0
                     gagner()
             print("valeur départ",tableau[depart][j])
@@ -532,13 +532,13 @@ def clavier(event):
                     tableau[i][j] = tableau[i][j] - (valeur_robot*10)
                     total = total + cpt
                     nb_robot += 1
-                    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacements", font=("Helvetica", "15"))
+                    mvt_total.config(text="Tu as fait rentrer : " + str(nb_robot) + " robot(s) en " + str(total) + " déplacement(s)", font=("Helvetica", "15"))
                     cpt = 0
                     gagner()
             print("valeur départ",tableau[depart][j])
             print("valeur arrivée",tableau[i][j])
             print(tableau[i][j])
-        nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
+        nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacement(s)", font=("Helvetica", "15"))
 
 def bordure():
     """creation bordures"""
@@ -623,11 +623,14 @@ def placer_cible():
     etoile1 = canvas.create_polygon(19+i*COTE,4+j*COTE,15.2+i*COTE,14.8+j*COTE,4+i*COTE,14.8+j*COTE,13.2+i*COTE,21.6+j*COTE,9.6+i*COTE,32.6+j*COTE,19+i*COTE,26.6+j*COTE,28.6+i*COTE,32.6+j*COTE,24.6+i*COTE,21.6+j*COTE,34+i*COTE,14.8+j*COTE,22.6+i*COTE,14.8+j*COTE,fill="black")
 
 def gagner():
+    """"Entre en jeu lorsqu'on le joueur à fait rentré les 5 robots"""
     """si on gagne, nous demande d'inscrire notre nom sinon affiche dommage"""
     global score1, score2, score3, nom, nom1, nom2, nom3, nb_robot, total, perdu
     if nb_robot == 5:
+        # si le joueur gagne
         if total < int(score3):
             demande_nom()
+        # si le joueur perd
         else:
             perdu = tk.Label(racine, text="Dommage, vous ne faites pas parti(e) du podium. Essayez encore!", font=("Helvetica", "15"), bg = "navajo white")
             perdu.grid(row=7, columnspan=5)
