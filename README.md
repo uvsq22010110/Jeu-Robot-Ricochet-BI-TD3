@@ -39,10 +39,10 @@ Pour que le robot puisse détecter les cases, savoir si elles sont vides ou occu
 
 Les cases sont déterminées par les coordonnées i et j. Leurs valeurs vont de 0 à 15.
 
-La fonction "placer_cible" permet de placer la cible dans un angle créé par les murs, pour chaque partie elle peut prendre une des 4 couleurs associée au robot de façon aléatoire.
+La fonction "placer_cible" permet de placer la cible dans un angle créé par les murs. Pour chaque partie elle peut prendre une des 4 couleurs associée au robot de façon aléatoire.
 
 Si vous devez quitter la partie mais que vous voulez sauvegarder, appuyer sur le bouton "sauvegarder". Le bouton "Sauvegarde" va garder en mémoire dans un fichier texte l'emplacement des robots, des murs, le nombre de déplacements etc, là où vous l'avez laissé. Ensuite en rouvrant le jeu, appuyer cette fois-ci sur le bouton "Reprendre la partie sauvegardée" qui va permettre de ré-initialiser la partie là où on l'a sauvegardé pour la dernière fois.
 
 Le bouton "Retour en arrière", permet de revenir en arrière si on le souhaite. Il faut cliquer une seule fois sur le bouton pour que le plateau de jeu se ré-initialise d'une case en arrière, par exemple si vous venez de faire avancer votre robot sur la gauche, il va revenir à sa place sur la droite.
 
-Le bouton "Recommencer", permet de recommencer la partie du début, et replace donc les robots à leur place de départ, mais laisse la cible et les murs à leur place(comme ils ne peuvent pas se déplcaer leur place n'a pas changé).
+Le bouton "Recommencer", permet de recommencer la partie du début et replace donc les robots à leur position initiale, sans toucher à la position de la cible et des murs.
