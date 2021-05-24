@@ -621,6 +621,7 @@ def placer_cible():
     etoile1 = canvas.create_polygon(19+i*COTE,4+j*COTE,15.2+i*COTE,14.8+j*COTE,4+i*COTE,14.8+j*COTE,13.2+i*COTE,21.6+j*COTE,9.6+i*COTE,32.6+j*COTE,19+i*COTE,26.6+j*COTE,28.6+i*COTE,32.6+j*COTE,24.6+i*COTE,21.6+j*COTE,34+i*COTE,14.8+j*COTE,22.6+i*COTE,14.8+j*COTE,fill="black")
 
 def gagner():
+    """entre en jeu lorsqu'on a fait rentrer les 5 robots"""
     global score1, score2, score3, nom, nom1, nom2, nom3, nb_robot, total
     if nb_robot == 5:
         if total < int(score3):
@@ -847,7 +848,7 @@ def recommencer():
 
 def sauvegarde_mouvement():
     """Effectue un retour en arrière lorsque l'on clique dessus"""
-    global descends, monte, droite, gauche, depart
+    global descends, monte, droite, gauche, depart, cpt
     fic_move = open(rep + "\move.txt", "r")
     ligne = fic_move.readline()
     while ligne:
@@ -862,6 +863,8 @@ def sauvegarde_mouvement():
         canvas.move(robot[0], -int(l[4])*COTE, 0)
     elif l[0] == "Right":
         canvas.move(robot[0], -int(l[4])*COTE, 0)
+    cpt -= 1
+    nb_de_deplacements.config(text="Tu as fait: " + str(cpt) + " déplacements", font=("Helvetica", "15"))
     fic_move.close()
 
 def sauvegarde_initiale():
